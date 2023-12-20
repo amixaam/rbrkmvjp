@@ -1,0 +1,1 @@
+cd backend && cp .env.exanple .env && composer install && php artisan migrate
