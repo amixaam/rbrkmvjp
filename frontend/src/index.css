@@ -1,0 +1,7 @@
+:root {
+    --example-color: #fff;
+}
+
+.exampleClass {
+    color: var(--example-color);
+}
