@@ -1,0 +1,9 @@
+.login-container{
+    width:100dvw;
+    height:100dvh;
+    background-color:var(--background-color);
+    background-image: url("../../images/wave_bg.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size:contain;
+}

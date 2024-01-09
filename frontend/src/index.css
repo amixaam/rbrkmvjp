@@ -1,0 +1,10 @@
+<<<<<<< Updated upstream
+=======
+:root {
+    --background-color: #FFFFFF;
+}
+
+.exampleClass {
+    color: var(--example-color);
+}
+>>>>>>> Stashed changes
