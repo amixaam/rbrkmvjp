@@ -1,78 +1,101 @@
-.login-container{
-    width:100dvw;
-    height:100dvh;
-    background-color:var(--background-color);
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
     background-image: url("../../images/wave_bg.png");
     background-repeat: no-repeat;
     background-position: bottom;
-    background-size:contain;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-box{
+
+.login-box {
     display: inline-flex;
     padding: 2rem 2rem;
     flex-direction: column;
     align-items: center;
-    gap:3.1875rem;
-    border-radius: 3.1875rem;
+    gap: 2rem;
+    border-radius: 3rem;
     border: 5px solid #FFCAFC;
     background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
     box-shadow: 0px 4px 23.9px 0px rgba(0, 0, 0, 0.17);
 }
-.login-box .title{
+
+.login-box .title {
     color: #8B358B;
     text-align: center;
-    font-family: Roboto Flex;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-style: normal;
-    font-weight: 700;
     line-height: normal;
 }
-.login-layout{
+
+.login-layout {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
-.login-layout input{
-    width: 25rem;
-    height: 2.5rem;
+
+.login-layout input {
+    width: 23rem;
+    height: 2rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
     border: 3px solid #8B358B;
     background: #EEBCEE;
 }
-.login-button{
-    width: 13rem;
-    height: 4rem;
+
+.login-button {
+    width: 14rem;
+    height: 3.5rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
 }
-.login-button .text{
+
+.login-button .text {
     color: #8B358B;
     text-align: center;
-    font-family: Roboto Flex;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
-.login-layout .input-text{
+
+.login-layout .input-text {
     color: #8B358B;
-    font-family: Roboto Flex;
     font-size: 1rem;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
-.login-layout .error-text{
+
+.login-layout .error-text {
     color: #C5314C;
-    text-align: right;
-    font-family: Roboto Flex;
-    font-size: 1.5rem;
-    font-style: normal;
+    font-size: 1rem;
     font-weight: 500;
     line-height: normal;
+}
+
+.login-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 23rem; 
 }
