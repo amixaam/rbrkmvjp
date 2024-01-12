@@ -10,5 +10,7 @@
 }
 
 .exampleClass {
-    color: var(--example-color);
+    color: var(--background-color);
 }
+
+

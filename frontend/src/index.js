@@ -4,12 +4,13 @@ import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Login from "./Pages/Login";
-
+import Users from "./Pages/Users";
 
 const App = () => {
     return (
         <Routes>
-            <Route path="/Login" element={<Login />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/Users" element={<Users />} />
         </Routes>
     );
 };
@@ -23,3 +24,4 @@ root.render(
         </Router>
     </React.StrictMode>
 );
+
