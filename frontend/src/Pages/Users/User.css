@@ -1,0 +1,33 @@
+.main-user-container{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-container{
+    height: auto;
+    width: auto;
+    gap: 51px;
+    background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
+    padding: 64px 48px;
+    border: 5px solid #FFCAFC;
+    border-radius: 50px;
+
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.create-buttons{
+    border-radius: 0.625rem;
+    border: 3px solid #DB87B9;
+    background: #FFADDE;
+}
+
+.creating-stuff{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
