@@ -8,7 +8,7 @@ function Users() {
         <div className="main-user-container">
             <div className="user-container">
                 <div className="title">
-
+                    <h1>Admin interface</h1>
                 </div>
                 <div className="userList">
                     <div className="specific-user">
@@ -16,8 +16,9 @@ function Users() {
                     </div>
                 </div>
                 <div className="buttons">
-                    <div className="atskaites">
-                        <button>Atskaite</button>
+                    <div className="creating-stuff">
+                        <button className="create-buttons">Add User</button>
+                        <button className="create-buttons">Create Report</button>
                     </div>
                     <div className="page-swappers">
                         <button><img src={LeftArrow} alt="Previous Button"/></button>
