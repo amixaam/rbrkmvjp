@@ -1,0 +1,26 @@
+.text-primary{
+    color: #8B358B;
+    text-align: center;
+    font-family: Roboto Flex;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.text-secondary{
+    color: #8B358B;
+    font-family: Roboto Flex;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.text-buttons{
+    color: #8B358B;
+    text-align: center;
+    font-family: Roboto Flex;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

@@ -1,31 +1,80 @@
 .main-user-container{
-    height: auto;
-    width: auto;
+    width: 90rem;
+    height: 44rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+/*User Containers*/
 .user-container{
-    height: auto;
-    width: auto;
-    gap: 51px;
+    display: inline-flex;
+    padding: 4rem 3rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.1875rem;
     background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
-    padding: 64px 48px;
+    border-radius: 3.125rem;
     border: 5px solid #FFCAFC;
-    border-radius: 50px;
+    box-shadow: 0px 4px 23.9px 0px rgba(0, 0, 0, 0.17);
 
 }
+.user-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.specific-user-titles{
+    display: flex;
+    flex-direction: row;
+    width: 70.375rem;
+    padding: 0.25rem 1rem;
+    align-items: center;
+    gap: 3.4375rem;
+    border-top: 3px solid #8B358B;
+    background: #FBD0FB;
+}
+.specific-user{
+    display: flex;
+    width: 70.375rem;
+    padding: 0.25rem 1rem;
+    align-items: center;
+    gap: 3.4375rem;
+    border-top: 3px solid #8B358B;
+    background: #FBD0FB;
+}
+
+
+
+
+/*Buttons*/
 .buttons{
     display: flex;
+    width: 72rem;
     flex-direction: row;
     justify-content: space-between;
 }
 .create-buttons{
+    height: 2.3125rem;
+    display: inline-flex;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
 }
-
+.swap-buttons{
+    width: 2.3125rem;
+    height: 2.3125rem;
+    flex-shrink: 0;
+    border-radius: 0.9375rem;
+    border: 3px solid #DB87B9;
+    background: #FFADDE;
+}
 .creating-stuff{
     display: flex;
     justify-content: center;
