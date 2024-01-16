@@ -1,0 +1,7 @@
+.main-worker-container{
+    width: 90rem;
+    height: 44rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

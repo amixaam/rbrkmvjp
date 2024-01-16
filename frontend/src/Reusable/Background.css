@@ -1,0 +1,11 @@
+.background-container {
+    position: absolute;
+    width: 100dvw;
+    height: 100dvh;
+    background-image: url(../images/wave_bg.svg);
+    background-color: var(--background);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: -1;
+}
