@@ -4,8 +4,8 @@ import "./index.css";
 function Worker() {
     return (
         <>
-            <div className="worker-main-container">
-
+            <div className="main-worker-container">
+                <div className="background-container"></div>
             </div>
         </>
     );
