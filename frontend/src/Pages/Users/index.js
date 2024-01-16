@@ -50,12 +50,10 @@ function Users() {
                         <button className="user-swap-buttons"><img src={LeftArrow} alt="Previous Button"/></button>
                         <button className="user-swap-buttons"><img src={RightArrow} alt="Next Button"/></button>
                     </div>
-
                 </div>
-
             </div>
-        </div>
     </>
+
 }
 
 export default Users;
