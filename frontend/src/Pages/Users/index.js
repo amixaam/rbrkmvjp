@@ -91,16 +91,15 @@ function Users() {
                 </div>
                 <div className="user-buttons">
                     <div className="user-creating-stuff">
-                        <button className="user-create-buttons"><p className="text-buttons">Add User</p></button>
-                        <button className="user-create-buttons"><p className="text-buttons">Create Report</p></button>
+                            <button className="user-create-buttons" onClick={handleButtonClick}><p className="text-buttons">Add User</p></button>
+                            <button className="user-create-buttons"><p className="text-buttons">Create Report</p>
+                            </button>
                     </div>
                     <div className="user-page-swappers">
                         <button className="user-swap-buttons"><img src={LeftArrow} alt="Previous Button"/></button>
                         <button className="user-swap-buttons"><img src={RightArrow} alt="Next Button"/></button>
                     </div>
-                                <button className="create-buttons" onClick={handleButtonClick}>
-                Add User
-              </button>
+
 
           {isPopupOpen && (
             <div className="popup-overlay">
