@@ -5,12 +5,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Login from "./Pages/Login";
 import Users from "./Pages/Users";
+import Worker from "./Pages/Worker";
 
 const App = () => {
     return (
         <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/Users" element={<Users />} />
+            <Route path="/Worker" element={<Worker />} />
         </Routes>
     );
 };

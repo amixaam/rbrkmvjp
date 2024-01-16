@@ -16,9 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->enum('status', [1, 2, 3])->default(1);
-            $table->text("contnet");
+            $table->text("content");
             $table->string("title");
-            $table->timestamps("date");
             $table->timestamps();
         });
     }
