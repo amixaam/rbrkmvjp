@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./User.css";
 import "../../text.css";
 import "../../Reusable/Background.css"
 import LeftArrow from "../../images/left_arrow.svg"
