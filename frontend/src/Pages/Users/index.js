@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./User.css";
 import "../../Reusable/text.css";
 import "../../Reusable/Background.css"
 import LeftArrow from "../../images/left_arrow.svg"
 import RightArrow from "../../images/right_arrow.svg"
-import React, { useState, useRef, useEffect } from "react";
 
 function Users() {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -169,6 +168,7 @@ function Users() {
           )}
                 </div>
             </div>
+        </div>
     </>
 
 }
