@@ -1,5 +1,6 @@
-
-import "../../text.css";
+import React from "react";
+import "./User.css";
+import "../../Reusable/text.css";
 import "../../Reusable/Background.css"
 import LeftArrow from "../../images/left_arrow.svg"
 import RightArrow from "../../images/right_arrow.svg"
@@ -58,7 +59,7 @@ function Users() {
         <div className="main-user-container">
             <div className="background-container"></div>
             <div className="user-container">
-                <div className="title">
+                <div className="main-user-title">
                     <h1 className="text-primary">Admin interface</h1>
                 </div>
                 <div className="user-list">
@@ -85,18 +86,18 @@ function Users() {
                             <p>x</p>
                         </div>
                         <div className="edit-container">
-                            <button className="edit-buttons"><p className="text-buttons">Edit</p></button>
+                            <button className="user-edit-buttons"><p className="text-buttons">Edit</p></button>
                         </div>
                     </div>
                 </div>
-                <div className="buttons">
-                    <div className="creating-stuff">
-                        <button className="create-buttons" onClick={handleButtonClick}><p className="text-buttons">Add User</p></button>
-                        <button className="create-buttons"><p className="text-buttons">Create Report</p></button>
+                <div className="user-buttons">
+                    <div className="user-creating-stuff">
+                        <button className="user-create-buttons"><p className="text-buttons">Add User</p></button>
+                        <button className="user-create-buttons"><p className="text-buttons">Create Report</p></button>
                     </div>
-                    <div className="page-swappers">
-                        <button className="swap-buttons"><img src={LeftArrow} alt="Previous Button"/></button>
-                        <button className="swap-buttons"><img src={RightArrow} alt="Next Button"/></button>
+                    <div className="user-page-swappers">
+                        <button className="user-swap-buttons"><img src={LeftArrow} alt="Previous Button"/></button>
+                        <button className="user-swap-buttons"><img src={RightArrow} alt="Next Button"/></button>
                     </div>
                                 <button className="create-buttons" onClick={handleButtonClick}>
                 Add User
