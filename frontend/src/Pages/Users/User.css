@@ -86,6 +86,17 @@
     border: 3px solid #DB87B9;
     background: #FFADDE;
 }
+.edit-buttons{
+    height: 2.3125rem;
+    display: inline-flex;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.625rem;
+    border: 3px solid #DB87B9;
+    background: #FFADDE;
+}
 .swap-buttons{
     width: 2.3125rem;
     height: 2.3125rem;
