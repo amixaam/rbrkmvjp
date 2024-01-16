@@ -52,6 +52,7 @@ function Users() {
                     </div>
                 </div>
             </div>
+        </div>
     </>
 
 }
