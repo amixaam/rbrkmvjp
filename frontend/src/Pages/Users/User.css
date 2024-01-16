@@ -58,13 +58,13 @@
 
 
 /*Buttons*/
-.buttons{
+.user-buttons{
     display: flex;
     width: 72rem;
     flex-direction: row;
     justify-content: space-between;
 }
-.edit-buttons{
+.user-edit-buttons{
     height: 2.3125rem;
     display: inline-flex;
     padding: 0.625rem;
@@ -75,7 +75,7 @@
     border: 3px solid #DB87B9;
     background: #FFADDE;
 }
-.create-buttons{
+.user-create-buttons{
     height: 2.3125rem;
     display: inline-flex;
     padding: 0.625rem;
@@ -86,7 +86,7 @@
     border: 3px solid #DB87B9;
     background: #FFADDE;
 }
-.swap-buttons{
+.user-swap-buttons{
     width: 2.3125rem;
     height: 2.3125rem;
     flex-shrink: 0;
@@ -94,13 +94,13 @@
     border: 3px solid #DB87B9;
     background: #FFADDE;
 }
-.creating-stuff{
+.user-creating-stuff{
     display: flex;
-    width: 18rem;
+    width: 17rem;
     justify-content: space-between;
     flex-direction: row;
 }
-.page-swappers{
+.user-page-swappers{
     display: flex;
     width: 6rem;
     justify-content: space-between;
