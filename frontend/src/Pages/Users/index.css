@@ -28,16 +28,16 @@
 }
 .specific-user-titles{
     display: flex;
-    flex-direction: row;
     width: 70.375rem;
     padding: 0.25rem 1rem;
-    align-items: center;
     gap: 3.4375rem;
     border-top: 3px solid #8B358B;
     background: #FBD0FB;
 }
 .specific-user{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 70.375rem;
     padding: 0.25rem 1rem;
     align-items: center;
@@ -45,7 +45,15 @@
     border-top: 3px solid #8B358B;
     background: #FBD0FB;
 }
-
+.id-title{
+    margin-right: 17rem;
+}
+.role-title{
+    margin-right: 14.5rem;
+}
+.other-title{
+    margin-right: 16rem;
+}
 
 
 
@@ -55,6 +63,17 @@
     width: 72rem;
     flex-direction: row;
     justify-content: space-between;
+}
+.edit-buttons{
+    height: 2.3125rem;
+    display: inline-flex;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.625rem;
+    border: 3px solid #DB87B9;
+    background: #FFADDE;
 }
 .create-buttons{
     height: 2.3125rem;
@@ -77,6 +96,13 @@
 }
 .creating-stuff{
     display: flex;
-    justify-content: center;
+    width: 18rem;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.page-swappers{
+    display: flex;
+    width: 6rem;
+    justify-content: space-between;
     flex-direction: row;
 }

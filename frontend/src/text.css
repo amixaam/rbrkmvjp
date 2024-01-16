@@ -15,6 +15,15 @@
     font-weight: 700;
     line-height: normal;
 }
+.small-text{
+    color: #8B358B;
+    text-align: center;
+    font-family: Roboto Flex;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
 .text-buttons{
     color: #8B358B;
     text-align: center;
