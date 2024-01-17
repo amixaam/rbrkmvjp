@@ -64,7 +64,7 @@ function Manager() {
                             </div>
                         </div>
 
-                        {/*Message container*/}
+                        {/*Messages container*/}
                         <div className="message-container">
                             <div className="manager-title">
                                 <p className="text-secondary">Recent Messages</p>
