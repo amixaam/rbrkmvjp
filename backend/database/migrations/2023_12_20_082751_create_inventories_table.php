@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignIdFor(product::class);
             $table->foreignIdFor(shelf::class);
             $table->integer('stock');
-            $table->timestamps('last_check');
             $table->timestamps();
         });
     }

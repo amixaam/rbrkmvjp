@@ -13,6 +13,13 @@ function Users() {
     email: "",
     role: "Admin", // Default role
   });
+  const errorMessages = {
+    Username: "Error message",
+    Password: "Error message",
+    email: "Error message",
+    role: "Error message"
+  };
+
 
   const roles = ["Admin", "Manager", "Worker"];
 
@@ -39,6 +46,7 @@ function Users() {
       [name]: value,
     });
   };
+  
 
   const handleAddUser = () => {
     setUserData({
@@ -101,36 +109,45 @@ function Users() {
                     </div>
 
 
-          {isPopupOpen && (
+                    {isPopupOpen && (
             <div className="popup-overlay">
               <div className="popup-box" ref={popupRef}>
-                <h2 className="popup-title">Add new user</h2>
+                <h2 className="popup-title">Add New User</h2>
                 <div className="popup-layout">
                   <div className="popup-input">
                     <div className="input-row">
-                      <h2 className="input-text">Username</h2>
+                      <h2 className="input-text">First Name</h2>
+                      {errorMessages.Username && (
+                        <p className="error-text">{errorMessages.Username}</p>
+                      )}
                     </div>
                     <input
                       type="text"
                       name="Username"
-                      value={userData.firstName}
+                      value={userData.Username}
                       onChange={handleInputChange}
                     />
                   </div>
                   <div className="popup-input">
                     <div className="input-row">
                       <h2 className="input-text">Password</h2>
+                      {errorMessages.Password && (
+                        <p className="error-text">{errorMessages.Password}</p>
+                      )}
                     </div>
                     <input
                       type="text"
                       name="Password"
-                      value={userData.lastName}
+                      value={userData.Password}
                       onChange={handleInputChange}
                     />
                   </div>
                   <div className="popup-input">
                     <div className="input-row">
                       <h2 className="input-text">Email</h2>
+                      {errorMessages.email && (
+                        <p className="error-text">{errorMessages.email}</p>
+                      )}
                     </div>
                     <input
                       type="email"
@@ -142,12 +159,15 @@ function Users() {
                   <div className="popup-input">
                     <div className="input-row">
                       <h2 className="input-text">Role</h2>
+                      {errorMessages.role && (
+                        <p className="error-text">{errorMessages.role}</p>
+                      )}
                     </div>
                     <select
                       name="role"
                       value={userData.role}
                       onChange={handleInputChange}
-                      className="popup-dropdown"
+                      className="popup-dropdown" // Apply the updated style class
                     >
                       {roles.map((role) => (
                         <option key={role} value={role}>
