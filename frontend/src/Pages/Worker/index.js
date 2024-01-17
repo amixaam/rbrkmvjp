@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import "../../Reusable/text.css";
 import "../../Reusable/Background.css"
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
+import PopUp from "./PopUp";
+import HistoryPopUp from "./ViewHistoryPopUp";
 
 function Worker() {
+  const [isPopUpVisible, setPopUpVisibility] = useState(false);
+  const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
+
+  const showPopUp = () => {
+    setPopUpVisibility(true);
+    setHistoryPopUpVisibility(false);
+  };
+
+  const showHistoryPopUp = () => {
+    setHistoryPopUpVisibility(true);
+    setPopUpVisibility(false);
+  };
+
+  const closePopUp = () => {
+    setPopUpVisibility(false);
+  };
+  const closeHistoryPopUp = () => {
+    setHistoryPopUpVisibility(false);
+  };
     return (
         <>
             <div className="main-worker-container">
@@ -49,7 +70,7 @@ function Worker() {
                         </div>
                         <div className="worker-buttons">
                             <div className="worker-creating-stuff">
-                                <button className="worker-create-buttons"><p className="text-buttons">View History</p>
+                                <button className="worker-create-buttons" onClick={showHistoryPopUp}><p className="text-buttons">View History</p>
                                 </button>
                                 <button className="worker-create-buttons"><p className="text-buttons">Create Report</p>
                                 </button>
@@ -87,7 +108,7 @@ function Worker() {
                             </div>
                             <div className="worker-message-buttons">
                                 <div className="worker-creating-stuff">
-                                    <button className="worker-create-buttons"><p className="text-buttons">Create New</p>
+                                    <button className="worker-create-buttons" onClick={showPopUp}><p className="text-buttons">Create New</p>
                                     </button>
                                 </div>
                                 <div className="worker-page-swappers">
@@ -97,6 +118,8 @@ function Worker() {
                                     </button>
                                 </div>
                             </div>
+                            {isPopUpVisible && <PopUp onClose={closePopUp} />}
+        {isHistoryPopUpVisible && <HistoryPopUp onClose={closeHistoryPopUp} />}
                         </div>
                     </div>
                 </div>
