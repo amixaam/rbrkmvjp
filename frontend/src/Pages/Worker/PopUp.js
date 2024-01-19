@@ -24,7 +24,7 @@ const PopUp = ({ onClose }) => {
                 <div className="popup-textarea">
                 <textarea type='text' className='descInput'/>
                 </div>
-                <div className="popup-input">
+                <div className="popup-inputButton">
                    <button className="sendMessageButton">send message</button>
                </div>
       </div>

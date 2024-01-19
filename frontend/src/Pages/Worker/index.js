@@ -6,18 +6,27 @@ import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import PopUp from "./PopUp";
 import HistoryPopUp from "./ViewHistoryPopUp";
+import EditProductPopUp from "../../Reusable/editProductPopup";
 
 function Worker() {
   const [isPopUpVisible, setPopUpVisibility] = useState(false);
   const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
+  const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
 
   const showPopUp = () => {
     setPopUpVisibility(true);
     setHistoryPopUpVisibility(false);
+    setEditProductPopUpVisibility(false);
   };
 
   const showHistoryPopUp = () => {
     setHistoryPopUpVisibility(true);
+    setPopUpVisibility(false);
+    setEditProductPopUpVisibility(false);
+  };
+  const showEditProductPopUp = () => {
+    setEditProductPopUpVisibility(true);
+    setHistoryPopUpVisibility(false);
     setPopUpVisibility(false);
   };
 
@@ -27,6 +36,9 @@ function Worker() {
   const closeHistoryPopUp = () => {
     setHistoryPopUpVisibility(false);
   };
+  const closeEditProductPopUp = () => {
+    setEditProductPopUpVisibility(false);
+  }
     return (
         <>
             <div className="main-worker-container">
@@ -65,7 +77,7 @@ function Worker() {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
+                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
                         <div className="worker-buttons">
@@ -120,6 +132,7 @@ function Worker() {
                             </div>
                             {isPopUpVisible && <PopUp onClose={closePopUp} />}
         {isHistoryPopUpVisible && <HistoryPopUp onClose={closeHistoryPopUp} />}
+        {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
                         </div>
                     </div>
                 </div>
