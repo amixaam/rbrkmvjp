@@ -6,6 +6,7 @@ import "./index.css";
 import Login from "./Pages/Login";
 import Users from "./Pages/Users";
 import Worker from "./Pages/Worker";
+import Manager from "./Pages/Manager"
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
             <Route path="/" element={<Login />} />
             <Route path="/Users" element={<Users />} />
             <Route path="/Worker" element={<Worker />} />
+            <Route path="/Manager" element={<Manager />} />
         </Routes>
     );
 };
