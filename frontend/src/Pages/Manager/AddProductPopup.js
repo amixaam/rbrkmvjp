@@ -1,7 +1,7 @@
 import React from "react";
-import "../Pages/Worker/index.css";
+import "../Worker/index.css";
 
-const EditProductPopUp = ({ onClose }) => {
+const AddProductPopUp = ({ onClose }) => {
     const handleOverlayClick = (e) => {
         // Check if the click occurred on the overlay (popup content)
         if (e.target.classList.contains('popup-overlay')) {
@@ -12,7 +12,7 @@ const EditProductPopUp = ({ onClose }) => {
   return (
     <div className="popup-overlay" onClick={handleOverlayClick}>
       <div className="popup-content2">
-        <h1 className="text-primary">Edit Product</h1>
+        <h1 className="text-primary">Add new Product</h1>
         <h1 className="text-secondary">Product Info</h1>
         <div className="ProductInfo">
             <div>
@@ -74,11 +74,11 @@ const EditProductPopUp = ({ onClose }) => {
                 </div>
                 </div>
                 <div className="popup-inputButton">
-                   <button className="sendMessageButton">edit product</button>
+                   <button className="sendMessageButton">add product</button>
                </div>
       </div>
     </div>
   );
 };
 
-export default EditProductPopUp;
+export default AddProductPopUp;

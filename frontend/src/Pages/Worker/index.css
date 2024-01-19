@@ -152,7 +152,7 @@
   .popup-content2 {
     background: #FBD0FB;
     width: 76.375rem;
-    height: 40.375rem;
+    height: 42.375rem;
     padding: 20px;
     border-radius: 3.125rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -178,19 +178,22 @@
   }
   .popup-inputButton2 {
     display: flex;
-    align-items: center;
-    width:42rem;
+    align-items: left;
+    width:23rem;
+    margin-right: 59rem;
     margin-top:1rem;
     flex-direction: column;
     color: #8B358B; 
   }
-  .popup-input2 {
+  .popup-input2 input{
     display: flex;
-    align-items: center;
     width:35rem;
     margin-left:1rem;
-    flex-direction: column;
-    color: #8B358B; 
+    height: 2rem;
+    flex-shrink: 0;
+    border-radius: 0.9375rem;
+    border: 3px solid #8B358B;
+    background: #EEBCEE;
   }
   .specialInput{
     width: 35rem;
@@ -203,21 +206,21 @@
     margin-left:1rem;
     line-height: normal;
   }
-  .popup-textarea {
+  .popup-textarea textarea {
     display: flex;
     align-items: center;
     width:72rem;
     margin-left:1rem;
     flex-direction: column;
-    color: #8B358B;
+    background: #EEBCEE;
   }
-  .popup-textarea2 {
+  .popup-textarea2 textarea {
     display: flex;
     align-items: center;
     width:35rem;
     margin-left:1rem;
     flex-direction: column;
-    color: #8B358B;
+    background: #EEBCEE;
   }
   .popup-textarea2 > textarea {
     width:35rem;
@@ -253,9 +256,7 @@
     display: flex;
     padding-top: 1rem;
     padding-bottom: 3rem;
-    width: 30rem;
-    margin-left: 62rem;
     flex-direction: row;
-    margin-right: 0;
+    margin-right: 4rem;
     justify-content: space-between;
 }
