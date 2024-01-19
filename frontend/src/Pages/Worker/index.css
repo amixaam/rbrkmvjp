@@ -142,7 +142,17 @@
   .popup-content {
     background: #FBD0FB;
     width: 76.375rem;
-    height: 30.375rem;
+    height: 32.375rem;
+    padding: 20px;
+    border-radius: 3.125rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .popup-content2 {
+    background: #FBD0FB;
+    width: 76.375rem;
+    height: 40.375rem;
     padding: 20px;
     border-radius: 3.125rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -153,9 +163,37 @@
     display: flex;
     align-items: center;
     width:72rem;
+    margin-top:1rem;
     margin-left:1rem;
     flex-direction: column;
     color: #8B358B; 
+  }
+  .popup-inputButton {
+    display: flex;
+    align-items: center;
+    width:8rem;
+    margin-top:1rem;
+    flex-direction: column;
+    color: #8B358B; 
+  }
+  .popup-inputButton2 {
+    display: flex;
+    align-items: center;
+    width:42rem;
+    margin-top:1rem;
+    flex-direction: column;
+    color: #8B358B; 
+  }
+  .popup-input2 {
+    display: flex;
+    align-items: center;
+    width:35rem;
+    margin-left:1rem;
+    flex-direction: column;
+    color: #8B358B; 
+  }
+  .specialInput{
+    width: 35rem;
   }
   .input-text {
     color: #8B358B;
@@ -173,6 +211,17 @@
     flex-direction: column;
     color: #8B358B;
   }
+  .popup-textarea2 {
+    display: flex;
+    align-items: center;
+    width:35rem;
+    margin-left:1rem;
+    flex-direction: column;
+    color: #8B358B;
+  }
+  .popup-textarea2 > textarea {
+    width:35rem;
+  }
   .descInput {
 	width:72rem;
 	background-color: #FBD0FB;
@@ -183,6 +232,9 @@
 	resize: none; 
     border: 3px solid #8B358B;
     border-radius: 0.9375rem;
+  }
+  .ProductInfo{
+    display:flex;
   }
   .sendMessageButton{
     height: 2.3125rem;
@@ -197,3 +249,13 @@
     color:#8B358B;
     cursor: pointer;
   }
+  .worker-buttons2 {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    width: 30rem;
+    margin-left: 62rem;
+    flex-direction: row;
+    margin-right: 0;
+    justify-content: space-between;
+}

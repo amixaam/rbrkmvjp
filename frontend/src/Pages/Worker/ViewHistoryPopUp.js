@@ -46,19 +46,36 @@ const HistoryPopUp = ({ onClose }) => {
                                 <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
-                        <div className="worker-buttons">
+                        <div className="specific-worker-shelf">
+                            <div className="shelf-container">
+                                <p>x</p>
+                            </div>
+                            <div className="date-container">
+                                <p>x</p>
+                            </div>
+                            <div className="other-container">
+                                <p>x</p>
+                            </div>
+                            <div className="edit-container">
+                                <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
+                            </div>
+                        </div>
+                        <div className="ProductInfo">
+                        <div className="popup-inputButton2">
+                   <button className="sendMessageButton">create report</button>
+               </div>
+                        <div className="worker-buttons2">
                             <div className="worker-page-swappers">
                                 <button className="worker-swap-buttons"><img src={LeftArrow} alt="Previous Button"/>
                                 </button>
                                 <button className="worker-swap-buttons"><img src={RightArrow} alt="Next Button"/>
                                 </button>
                             </div>
+                            </div>
                         </div>
                 </div>
                 
-                <div className="popup-input">
-                   <button className="sendMessageButton">create report</button>
-               </div>
+                
       </div>
     </div>
   );
