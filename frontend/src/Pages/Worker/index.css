@@ -269,26 +269,27 @@
 }
 @media (max-width: 767px) {
   .popup-content {
-    width: 20.375rem;
+    width: 19rem;
     height: auto;
-    margin-right: 33.5rem;
+    margin-right: 35rem;
+    margin-bottom: 60rem;
   }
   .popup-content2 {
     width: 20.375rem;
     height: auto;
-    margin-right: 33.5rem;
+    margin-right: 35.5rem;
   }
   .popup-input {
-    width:19rem;
+    width:17rem;
   }
   .popup-input2 input{
-    width:19rem;
+    width:17rem;
   }
   .popup-textarea textarea {
-    width:19rem;
+    width:17rem;
   }
   .popup-textarea2 textarea {
-    width:19rem;
+    width:17rem;
   }
   .ProductInfo{
     display:block;

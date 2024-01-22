@@ -31,7 +31,7 @@
 }
 @media (max-width: 767px) {
     .text-primary{
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .text-secondary{
         font-size: 1.5rem;
