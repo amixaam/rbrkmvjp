@@ -88,6 +88,8 @@
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
+
+    cursor: pointer;
 }
 .manager-create-buttons{
     height: 2.3125rem;
@@ -99,6 +101,8 @@
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
+
+    cursor: pointer;
 }
 .manager-swap-buttons{
     width: 2.3125rem;
@@ -107,6 +111,8 @@
     border-radius: 0.9375rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
+
+    cursor: pointer;
 }
 .manager-creating-stuff{
     display: flex;
