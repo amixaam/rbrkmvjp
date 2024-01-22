@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Worker/index.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
+import EditProductPopUp from "../../Reusable/editProductPopup.js"
 
 const ProductHistoryPopUp = ({ onClose }) => {
+    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
+    const showEditProductPopUp = () => {
+        setEditProductPopUpVisibility(true);
+      };
+    const closeEditProductPopUp = () => {
+        setEditProductPopUpVisibility(false);
+      }
     const handleOverlayClick2 = (e) => {
         // Check if the click occurred on the overlay (popup content)
         if (e.target.classList.contains('popup-overlay')) {
@@ -43,7 +51,7 @@ const ProductHistoryPopUp = ({ onClose }) => {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
+                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
                         <div className="specific-worker-shelf">
@@ -57,7 +65,7 @@ const ProductHistoryPopUp = ({ onClose }) => {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
+                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
                         <div className="ProductInfo">
@@ -72,6 +80,7 @@ const ProductHistoryPopUp = ({ onClose }) => {
                                 </button>
                             </div>
                             </div>
+                            {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
                         </div>
                 </div>
                 
