@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
+import EditProductPopUp from "../../Reusable/editProductPopup.js"
 
 const HistoryPopUp = ({ onClose }) => {
+    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
+    const showEditProductPopUp = () => {
+        setEditProductPopUpVisibility(true);
+      };
+    const closeEditProductPopUp = () => {
+        setEditProductPopUpVisibility(false);
+      }
     const handleOverlayClick2 = (e) => {
         // Check if the click occurred on the overlay (popup content)
         if (e.target.classList.contains('popup-overlay')) {
@@ -28,7 +36,7 @@ const HistoryPopUp = ({ onClose }) => {
                                     <p className="small-text">Date</p>
                                 </div>
                                 <div className="other-title">
-                                    <p className="small-text">Other</p>
+                                    <p className="small-text">vel vertibas</p>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +51,7 @@ const HistoryPopUp = ({ onClose }) => {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
+                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
                         <div className="specific-worker-shelf">
@@ -57,10 +65,10 @@ const HistoryPopUp = ({ onClose }) => {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons"><p className="text-buttons">Edit</p></button>
+                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
-                        <div className="ProductInfo">
+                        <div className="ProductInfo2">
                         <div className="popup-inputButton2">
                    <button className="sendMessageButton">create report</button>
                </div>
@@ -72,6 +80,7 @@ const HistoryPopUp = ({ onClose }) => {
                                 </button>
                             </div>
                             </div>
+                            {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
                         </div>
                 </div>
                 
