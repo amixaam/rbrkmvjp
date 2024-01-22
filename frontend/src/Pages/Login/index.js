@@ -1,82 +1,105 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./index.css";
-import CSRF from "../../Reusable/csrf"
+
 import Background from "../../Reusable/Background";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const navigate = useNavigate();
-    const [Result, setResult] = useState()
-    const [Username, setUsername] = useState();
-    const [Password, setPassword] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
+    const navigate = useNavigate;
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
-    const loginHandler = async(e)=> {
+
+    const loginHandler = async (e) => {
         e.preventDefault();
-        const csrfToken = await CSRF();
 
         try {
             const response = await fetch("http://127.0.0.1:8000/api/login", {
                 method: "POST",
-                credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
-                    Accept: "application/json",
                 },
                 body: JSON.stringify({
-                    username: {Username},
-                    password: {Password},
-                    _token: csrfToken,
+                    email: email,
+                    password: password,
                 }),
             });
 
-            if (!response.ok) {
-                setResult("fail");
-                throw new Error("Login failed");
-            }
-
             const data = await response.json();
-            setResult("success");
-            sessionStorage.setItem("token", data.token);
-            navigate("/users");
+            if (response.ok) {
+                // redirect
+                sessionStorage.setItem("token", data.token);
+                sessionStorage.setItem("user_id", data.user.user_id);
+                sessionStorage.setItem("role_id", data.user.role_id);
+                switch (data.user.role_id) {
+                    case "1":
+                        navigate("/admin");
+                        break;
+                    case "2":
+                        navigate("/manager");
+                        break;
+                    case "3":
+                        navigate("/worker");
+                        break;
+                }
+            } else {
+                console.log("incorrect credentials");
+            }
         } catch (error) {
-            setResult("fail");
             console.error("Login failed", error);
         }
-    }
+    };
+
+    //
+    // TODO: ERROR HANDLING
+    //
 
     return (
         <form id="loginform">
             <div className="login-container">
+                <Background />
                 <div className="login-box">
                     <h1 className="title">RBRKMVJP</h1>
                     <div className="login-layout">
                         <div className="login-input">
                             <div className="input-row">
-                                <h2 className="input-text">Username</h2>
+                                <h2 className="input-text">Email</h2>
                                 <h3 className="error-text"></h3>
                             </div>
-                            <input type="text" name="name" value={Username} onChange={handleUsernameChange}/>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={handleEmailChange}
+                                required
+                            />
                         </div>
                         <div className="login-input">
                             <div className="input-row">
                                 <h2 className="input-text">Password</h2>
                                 <h3 className="error-text"></h3>
                             </div>
-                            <input type="password" name="name" value={Password} onChange={handlePasswordChange}/>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                required
+                            />
                         </div>
                     </div>
                     <button className="login-button" onClick={loginHandler}>
                         <h1 className="text">Log in</h1>
                     </button>
                 </div>
-                <Background />
             </div>
         </form>
     );

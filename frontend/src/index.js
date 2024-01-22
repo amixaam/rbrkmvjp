@@ -4,17 +4,17 @@ import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Login from "./Pages/Login";
-import Users from "./Pages/Users";
 import Worker from "./Pages/Worker";
-import Manager from "./Pages/Manager"
+import Manager from "./Pages/Manager";
+import Admin from "./Pages/Admin";
 
 const App = () => {
     return (
         <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/Users" element={<Users />} />
-            <Route path="/Worker" element={<Worker />} />
-            <Route path="/Manager" element={<Manager />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/worker" element={<Worker />} />
+            <Route path="/manager" element={<Manager />} />
         </Routes>
     );
 };
@@ -28,4 +28,3 @@ root.render(
         </Router>
     </React.StrictMode>
 );
-
