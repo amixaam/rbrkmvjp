@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./index.css";
+import "../Worker/index.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import EditProductPopUp from "../../Reusable/editProductPopup.js"
 
-const HistoryPopUp = ({ onClose }) => {
+const ProductHistoryPopUp = ({ onClose }) => {
     const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
     const showEditProductPopUp = () => {
         setEditProductPopUpVisibility(true);
@@ -21,19 +21,19 @@ const HistoryPopUp = ({ onClose }) => {
   return (
     <div className="popup-overlay" onClick={handleOverlayClick2}>
       <div className="popup-content">
-        <h1 className="text-primary">Work History</h1>
+        <h1 className="text-primary">Product History</h1>
             
             <div className="work-due-contianer">
                         <div className="worker-title">
-                            <p className="text-secondary">All work</p>
+                            <p className="text-secondary">All products</p>
                         </div>
                         <div className="worker-shelves">
                             <div className="specific-worker-shelf-titles">
                                 <div className="shelf-title">
-                                    <p className="small-text">Shelf</p>
+                                    <p className="small-text">ID</p>
                                 </div>
                                 <div className="date-title">
-                                    <p className="small-text">Date</p>
+                                    <p className="small-text">Asignee</p>
                                 </div>
                                 <div className="other-title">
                                     <p className="small-text">vel vertibas</p>
@@ -90,4 +90,4 @@ const HistoryPopUp = ({ onClose }) => {
   );
 };
 
-export default HistoryPopUp;
+export default ProductHistoryPopUp;

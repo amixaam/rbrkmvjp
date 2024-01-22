@@ -3,10 +3,10 @@ import "../Worker/index.css";
 
 const AddProductPopUp = ({ onClose }) => {
     const handleOverlayClick = (e) => {
-        // Check if the click occurred on the overlay (popup content)
-        if (e.target.classList.contains('popup-overlay')) {
-          onClose();
-        }
+      // Always close the popup when clicking on the overlay
+      if (e.target.classList.contains('popup-overlay')) {
+      onClose();
+    }
       };
       
   return (

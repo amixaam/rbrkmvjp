@@ -5,25 +5,25 @@ import "../../Reusable/Background.css"
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import PopUp from "../Worker/PopUp";
-import HistoryPopUp from "../Worker/ViewHistoryPopUp";
+import ProductHistoryPopUp from "./ProductHistoryPopUp";
 import EditProductPopUp from "../../Reusable/editProductPopup";
 import AddProductPopUp from "./AddProductPopup";
 
 function Manager() {
     const [isPopUpVisible, setPopUpVisibility] = useState(false);
-    const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
+    const [isProductHistoryPopUpVisible, setProductHistoryPopUpVisibility] = useState(false);
     const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
     const [isAddProductPopUpVisible, setAddProductPopUpVisibility] = useState(false);
 
     const showPopUp = () => {
       setPopUpVisibility(true);
-      setHistoryPopUpVisibility(false);
+      setProductHistoryPopUpVisibility(false);
       setEditProductPopUpVisibility(false);
       setAddProductPopUpVisibility(false);
     };
   
-    const showHistoryPopUp = () => {
-      setHistoryPopUpVisibility(true);
+    const showProductHistoryPopUp = () => {
+      setProductHistoryPopUpVisibility(true);
       setPopUpVisibility(false);
       setEditProductPopUpVisibility(false);
       setAddProductPopUpVisibility(false);
@@ -31,21 +31,21 @@ function Manager() {
     const showEditProductPopUp = () => {
       setEditProductPopUpVisibility(true);
       setAddProductPopUpVisibility(false);
-      setHistoryPopUpVisibility(false);
+      setProductHistoryPopUpVisibility(false);
       setPopUpVisibility(false);
     };
     const showAddProductPopUp = () => {
         setAddProductPopUpVisibility(true);
         setEditProductPopUpVisibility(false);
-        setHistoryPopUpVisibility(false);
+        setProductHistoryPopUpVisibility(false);
         setPopUpVisibility(false);
       };
   
     const closePopUp = () => {
       setPopUpVisibility(false);
     };
-    const closeHistoryPopUp = () => {
-      setHistoryPopUpVisibility(false);
+    const closeProductHistoryPopUp = () => {
+      setProductHistoryPopUpVisibility(false);
     };
     const closeEditProductPopUp = () => {
       setEditProductPopUpVisibility(false);
@@ -96,7 +96,7 @@ function Manager() {
                         </div>
                         <div className="manager-buttons">
                             <div className="manager-creating-stuff">
-                                <button className="manager-create-buttons" onClick={showHistoryPopUp}><p className="text-buttons">View History</p>
+                                <button className="manager-create-buttons" onClick={showProductHistoryPopUp}><p className="text-buttons">View History</p>
                                 </button>
                                 <button className="manager-create-buttons" onClick={showAddProductPopUp}><p className="text-buttons">Add Product</p>
                                 </button>
@@ -147,7 +147,7 @@ function Manager() {
                                 </div>
                             </div>
                             {isPopUpVisible && <PopUp onClose={closePopUp} />}
-        {isHistoryPopUpVisible && <HistoryPopUp onClose={closeHistoryPopUp} />}
+        {isProductHistoryPopUpVisible && <ProductHistoryPopUp onClose={closeProductHistoryPopUp} />}
         {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
         {isAddProductPopUpVisible && <AddProductPopUp onClose={closeAddProductPopUp} />}
                         </div>
