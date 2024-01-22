@@ -126,7 +126,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            return response()->json(['message' => 'Login successful', 'user' => $user]);
+            return response()->json(['message' => 'Login successful']);
         } else {
             return response()->json(['message' => 'Invalid login credentials'], 401);
         }
