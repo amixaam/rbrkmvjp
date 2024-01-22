@@ -19,15 +19,3 @@ Route::get('/', function () {
 });
 
 // users
-
-Route::group(
-    ['prefix' => 'users'],
-    function () {
-        Route::get('/', [UserController::class, 'GetAllUsers']);
-        Route::put('/{user_id}', [UserController::class, 'UpdateUser']);
-        Route::get('/{user_id}', [UserController::class, 'GetUser']);
-        Route::post('/', [UserController::class, 'CreateUser']);
-        Route::delete('/{user_id}', [UserController::class, 'DeleteUser']);
-        Route::post('/login', [UserController::class, 'ValidateLogin']);
-    }
-);
