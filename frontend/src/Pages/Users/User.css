@@ -53,6 +53,8 @@
     width: 72rem;
     flex-direction: row;
     justify-content: space-between;
+
+    cursor: pointer;
 }
 .user-edit-buttons{
     height: 2.3125rem;
@@ -64,6 +66,8 @@
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
+
+    cursor: pointer;
 }
 .user-create-buttons{
     height: 2.3125rem;
@@ -75,6 +79,8 @@
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
+
+    cursor: pointer;
 }
 .user-swap-buttons{
     width: 2.3125rem;
@@ -83,6 +89,8 @@
     border-radius: 0.9375rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
+
+    cursor: pointer;
 }
 .user-creating-stuff{
     display: flex;
@@ -195,6 +203,8 @@
     border: 3px solid #DB87B9;
     background: #FFADDE;
     margin-left: 0.5rem;
+
+    cursor: pointer;
   }
   
   .popup-button .button-text {
@@ -224,4 +234,71 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: normal;
+  }
+
+  @media (max-width: 767px) {
+    .popup-box {
+      padding: 2rem 1rem;
+      margin-right:  34.5rem;
+      width: 19rem;
+    }
+    .popup-button {
+      margin-left: 4.5rem;
+    }
+    
+  .popup-input {
+    margin-right: 1rem;
+  }
+  .specific-user-titles{
+    display: flex;
+    width: 19.5rem;
+    margin-left: 1rem;
+    padding: 0.25rem ;
+    gap: 0.4375rem;
+    border-top: 3px solid #8B358B;
+    background: #FBD0FB;
+}
+.specific-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 19.5rem;
+    margin-left: 1rem;
+    padding: 0.25rem ;
+    align-items: center;
+    gap: 0.4375rem;
+    border-top: 3px solid #8B358B;
+    background: #FBD0FB;
+}
+.id-title{
+  margin-right: 1rem;
+}
+.role-title{
+  margin-right: 1rem;
+  margin-left: -13rem;
+}
+.other-title{
+  margin-right: 1rem;
+  margin-left: 1.5rem;
+}
+.user-container{
+  width:15rem; 
+  margin-left: 0rem;
+  margin-right: 1.5rem;
+}
+.user-create-buttons{
+  margin-left: 11rem;
+  width: 5rem;
+  height: auto;
+  cursor: pointer;
+}
+.user-buttons{
+  display: flex;
+  width: 27rem;
+  margin-right: 7rem;
+  flex-direction: row;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
   }
