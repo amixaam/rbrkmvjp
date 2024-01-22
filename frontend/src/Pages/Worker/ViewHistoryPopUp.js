@@ -28,7 +28,7 @@ const HistoryPopUp = ({ onClose }) => {
                                     <p className="small-text">Date</p>
                                 </div>
                                 <div className="other-title">
-                                    <p className="small-text">Other</p>
+                                    <p className="small-text">vel vertibas</p>
                                 </div>
                             </div>
                         </div>
