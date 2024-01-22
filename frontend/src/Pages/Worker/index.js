@@ -131,8 +131,8 @@ function Worker() {
                                 </div>
                             </div>
                             {isPopUpVisible && <PopUp onClose={closePopUp} />}
-        {isHistoryPopUpVisible && <HistoryPopUp onClose={closeHistoryPopUp} />}
-        {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
+                            {isHistoryPopUpVisible && <HistoryPopUp onClose={closeHistoryPopUp} />}
+                            {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
                         </div>
                     </div>
                 </div>
