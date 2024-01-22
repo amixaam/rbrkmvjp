@@ -2,6 +2,7 @@ import React from "react";
 import "../Pages/Worker/index.css";
 
 const EditProductPopUp = ({ onClose }) => {
+    
     const handleOverlayClick = (e) => {
         // Check if the click occurred on the overlay (popup content)
         if (e.target.classList.contains('popup-overlay')) {
