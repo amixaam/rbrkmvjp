@@ -68,7 +68,7 @@ const HistoryPopUp = ({ onClose }) => {
                                 <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
-                        <div className="ProductInfo">
+                        <div className="ProductInfo2">
                         <div className="popup-inputButton2">
                    <button className="sendMessageButton">create report</button>
                </div>
