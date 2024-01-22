@@ -22,7 +22,6 @@ const ProductHistoryPopUp = ({ onClose }) => {
     <div className="popup-overlay" onClick={handleOverlayClick2}>
       <div className="popup-content">
         <h1 className="text-primary">Product History</h1>
-            
             <div className="work-due-contianer">
                         <div className="worker-title">
                             <p className="text-secondary">All products</p>
@@ -68,11 +67,11 @@ const ProductHistoryPopUp = ({ onClose }) => {
                                 <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
                             </div>
                         </div>
-                        <div className="ProductInfo">
+                        <div className="ProductInfo2">
                         <div className="popup-inputButton2">
                    <button className="sendMessageButton">create report</button>
                </div>
-                        <div className="worker-buttons2">
+                    <div className="worker-buttons2">
                             <div className="worker-page-swappers">
                                 <button className="worker-swap-buttons"><img src={LeftArrow} alt="Previous Button"/>
                                 </button>
