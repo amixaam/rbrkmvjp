@@ -173,6 +173,7 @@ function Manager() {
                                         </p>
                                     <button className="manager-create-buttons2" onClick={showPopUp}><p className="text-buttons">Create New</p>
                                     </button>
+                                    </button>
                                 </div>
                                 <div className="manager-page-swappers">
                                     <button className="manager-swap-buttons">
