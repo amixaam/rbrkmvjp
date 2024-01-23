@@ -31,6 +31,7 @@ function Worker() {
         setHistoryPopUpVisibility(false);
         setPopUpVisibility(false);
     };
+<<<<<<< Updated upstream
 
     const closePopUp = () => {
         setPopUpVisibility(false);
@@ -71,6 +72,18 @@ function Worker() {
         getWorkDue();
     }, []);
 
+=======
+
+    const closePopUp = () => {
+        setPopUpVisibility(false);
+    };
+    const closeHistoryPopUp = () => {
+        setHistoryPopUpVisibility(false);
+    };
+    const closeEditProductPopUp = () => {
+        setEditProductPopUpVisibility(false);
+    };
+>>>>>>> Stashed changes
     return (
         <>
             <div className="main-worker-container">
