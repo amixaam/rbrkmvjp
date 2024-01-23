@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500;8..144,700&display=swap");
 
 :root {
-    /* light mode */
     --background: #ffffff;
     --text-fallback: #8b358b;
 
@@ -21,33 +20,32 @@
     --input-text: #8b358b;
     --input-error: #c5314c;
 
-    /* dark mode */
-    --dark-background: #0c0823;
-    --dark-text-fallback: #d9d2ff;
-
-    /* dark containers */
-    --dark-container-fill: linear-gradient(180deg, #3c2aaa 50%, #3f3095);
-    --dark-container-border: #5340c5;
-    --dark-container-text: #d9d2ff;
-
-    /* dark buttons */
-    --dark-button-fill: #6c57e8;
-    --dark-button-border: #5745c0;
-    --dark-button-text: #d9d2ff;
-
-    /* dark input fields */
-    --dark-input-fill: #34277e;
-    --dark-input-border: #5340c8;
-    --dark-input-text: #d9d2ff;
-    --dark-input-error: #bc7ed1;
-
-    /* UNIVERSAL */
     --container-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
     --popup-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+    --background: #0c0823;
+    --text-fallback: #d9d2ff;
+
+    --container-fill: linear-gradient(180deg, #3c2aaa 50%, #3f3095);
+    --container-border: #5340c5;
+    --container-text: #d9d2ff;
+
+    --button-fill: #6c57e8;
+    --button-border: #5745c0;
+    --button-text: #d9d2ff;
+
+    --input-fill: #34277e;
+    --input-border: #5340c8;
+    --input-text: #d9d2ff;
+    --input-error: #bc7ed1;
 }
 
 /* tiks visiem applyots */
 * {
     margin: 0;
+    min-width: 0;
     font-family: "Roboto Flex", sans-serif;
 }

@@ -1,62 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import "../../Reusable/text.css";
-import "../../Reusable/Background.css"
+import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import PopUp from "../Worker/PopUp";
 import ProductHistoryPopUp from "./ProductHistoryPopUp";
 import EditProductPopUp from "../../Reusable/editProductPopup";
 import AddProductPopUp from "./AddProductPopup";
+import Background from "../../Reusable/Background";
 
 function Manager() {
     const [isPopUpVisible, setPopUpVisibility] = useState(false);
-    const [isProductHistoryPopUpVisible, setProductHistoryPopUpVisibility] = useState(false);
-    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
-    const [isAddProductPopUpVisible, setAddProductPopUpVisibility] = useState(false);
+    const [isProductHistoryPopUpVisible, setProductHistoryPopUpVisibility] =
+        useState(false);
+    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] =
+        useState(false);
+    const [isAddProductPopUpVisible, setAddProductPopUpVisibility] =
+        useState(false);
 
     const showPopUp = () => {
-      setPopUpVisibility(true);
-      setProductHistoryPopUpVisibility(false);
-      setEditProductPopUpVisibility(false);
-      setAddProductPopUpVisibility(false);
+        setPopUpVisibility(true);
+        setProductHistoryPopUpVisibility(false);
+        setEditProductPopUpVisibility(false);
+        setAddProductPopUpVisibility(false);
     };
-  
+
     const showProductHistoryPopUp = () => {
-      setProductHistoryPopUpVisibility(true);
-      setPopUpVisibility(false);
-      setEditProductPopUpVisibility(false);
-      setAddProductPopUpVisibility(false);
+        setProductHistoryPopUpVisibility(true);
+        setPopUpVisibility(false);
+        setEditProductPopUpVisibility(false);
+        setAddProductPopUpVisibility(false);
     };
     const showEditProductPopUp = () => {
-      setEditProductPopUpVisibility(true);
-      setAddProductPopUpVisibility(false);
-      setProductHistoryPopUpVisibility(false);
-      setPopUpVisibility(false);
+        setEditProductPopUpVisibility(true);
+        setAddProductPopUpVisibility(false);
+        setProductHistoryPopUpVisibility(false);
+        setPopUpVisibility(false);
     };
     const showAddProductPopUp = () => {
         setAddProductPopUpVisibility(true);
         setEditProductPopUpVisibility(false);
         setProductHistoryPopUpVisibility(false);
         setPopUpVisibility(false);
-      };
-  
+    };
+
     const closePopUp = () => {
-      setPopUpVisibility(false);
+        setPopUpVisibility(false);
     };
     const closeProductHistoryPopUp = () => {
-      setProductHistoryPopUpVisibility(false);
+        setProductHistoryPopUpVisibility(false);
     };
     const closeEditProductPopUp = () => {
-      setEditProductPopUpVisibility(false);
-    }
+        setEditProductPopUpVisibility(false);
+    };
     const closeAddProductPopUp = () => {
         setEditProductPopUpVisibility(false);
-      }
+    };
     return (
         <>
             <div className="main-manager-container">
-                <div className="background-container"></div>
+                <Background />
                 <div className="manager-container">
                     <div className="main-title">
                         <h1 className="text-primary">Manager interface</h1>
@@ -75,7 +79,7 @@ function Manager() {
                                 <div className="asignee-title">
                                     <p className="small-text">Asignee</p>
                                 </div>
-                                <div className="other-title">
+                                <div className="other-title1">
                                     <p className="small-text">Other</p>
                                 </div>
                             </div>
@@ -91,22 +95,43 @@ function Manager() {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
+                                <button
+                                    className="worker-edit-buttons"
+                                    onClick={showEditProductPopUp}
+                                >
+                                    <p className="text-buttons">Edit</p>
+                                </button>
                             </div>
                         </div>
                         <div className="manager-buttons">
                             <div className="manager-creating-stuff">
-                                <button className="manager-create-buttons" onClick={showProductHistoryPopUp}><p className="text-buttons">View History</p>
+                                <button
+                                    className="manager-create-buttons"
+                                    onClick={showProductHistoryPopUp}
+                                >
+                                    <p className="text-buttons">View History</p>
                                 </button>
-                                <button className="manager-create-buttons" onClick={showAddProductPopUp}><p className="text-buttons">Add Product</p>
+                                <button
+                                    className="manager-create-buttons"
+                                    onClick={showAddProductPopUp}
+                                >
+                                    <p className="text-buttons">Add Product</p>
                                 </button>
-                                <button className="manager-create-buttons"><p className="text-buttons">Create Report</p>
+                                <button className="manager-create-buttons">
+                                    <p className="text-buttons">
+                                        Create Report
+                                    </p>
                                 </button>
                             </div>
                             <div className="manager-page-swappers">
-                                <button className="manager-swap-buttons"><img src={LeftArrow} alt="Previous Button"/>
+                                <button className="manager-swap-buttons">
+                                    <img
+                                        src={LeftArrow}
+                                        alt="Previous Button"
+                                    />
                                 </button>
-                                <button className="manager-swap-buttons"><img src={RightArrow} alt="Next Button"/>
+                                <button className="manager-swap-buttons">
+                                    <img src={RightArrow} alt="Next Button" />
                                 </button>
                             </div>
                         </div>
@@ -114,7 +139,9 @@ function Manager() {
                         {/*Messages container*/}
                         <div className="message-container">
                             <div className="manager-title">
-                                <p className="text-secondary">Recent Messages</p>
+                                <p className="text-secondary">
+                                    Recent Messages
+                                </p>
                                 <div className="specific-message">
                                     <div className="sent-received-container">
                                         <p>x</p>
@@ -129,27 +156,55 @@ function Manager() {
                                         <p>x</p>
                                     </div>
                                     <div className="edit-container">
-                                        <button className="manager-edit-buttons"><p className="text-buttons">View</p>
+                                        <button className="manager-edit-buttons">
+                                            <p className="text-buttons">View</p>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             <div className="manager-message-buttons">
                                 <div className="manager-creating-stuff">
-                                    <button className="manager-create-buttons" onClick={showPopUp}><p className="text-buttons">Create New</p>
+                                    <button
+                                        className="manager-create-buttons"
+                                        onClick={showPopUp}
+                                    >
+                                        <p className="text-buttons">
+                                            Create New
+                                        </p>
+                                    <button className="manager-create-buttons2" onClick={showPopUp}><p className="text-buttons">Create New</p>
                                     </button>
                                 </div>
                                 <div className="manager-page-swappers">
-                                    <button className="manager-swap-buttons"><img src={LeftArrow} alt="Previous Button"/>
+                                    <button className="manager-swap-buttons">
+                                        <img
+                                            src={LeftArrow}
+                                            alt="Previous Button"
+                                        />
                                     </button>
-                                    <button className="manager-swap-buttons"><img src={RightArrow} alt="Next Button"/>
+                                    <button className="manager-swap-buttons">
+                                        <img
+                                            src={RightArrow}
+                                            alt="Next Button"
+                                        />
                                     </button>
                                 </div>
                             </div>
                             {isPopUpVisible && <PopUp onClose={closePopUp} />}
-        {isProductHistoryPopUpVisible && <ProductHistoryPopUp onClose={closeProductHistoryPopUp} />}
-        {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
-        {isAddProductPopUpVisible && <AddProductPopUp onClose={closeAddProductPopUp} />}
+                            {isProductHistoryPopUpVisible && (
+                                <ProductHistoryPopUp
+                                    onClose={closeProductHistoryPopUp}
+                                />
+                            )}
+                            {isEditProductPopUpVisible && (
+                                <EditProductPopUp
+                                    onClose={closeEditProductPopUp}
+                                />
+                            )}
+                            {isAddProductPopUpVisible && (
+                                <AddProductPopUp
+                                    onClose={closeAddProductPopUp}
+                                />
+                            )}
                         </div>
                     </div>
                 </div>
