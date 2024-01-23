@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import "./index.css";
+<<<<<<< Updated upstream
 
+=======
+import CSRF from "../../Reusable/csrf";
+>>>>>>> Stashed changes
 import Background from "../../Reusable/Background";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+<<<<<<< Updated upstream
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+=======
+    const navigate = useNavigate();
+    const [Username, setUsername] = useState();
+    const [Password, setPassword] = useState();
+>>>>>>> Stashed changes
 
     const navigate = useNavigate;
 
@@ -17,7 +27,10 @@ function Login() {
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     const loginHandler = async (e) => {
         e.preventDefault();
 
@@ -28,8 +41,14 @@ function Login() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+<<<<<<< Updated upstream
                     email: email,
                     password: password,
+=======
+                    username: { Username },
+                    password: { Password },
+                    _token: csrfToken,
+>>>>>>> Stashed changes
                 }),
             });
 
@@ -57,10 +76,13 @@ function Login() {
             console.error("Login failed", error);
         }
     };
+<<<<<<< Updated upstream
 
     //
     // TODO: ERROR HANDLING
     //
+=======
+>>>>>>> Stashed changes
 
     return (
         <form id="loginform">
@@ -75,11 +97,18 @@ function Login() {
                                 <h3 className="error-text"></h3>
                             </div>
                             <input
+<<<<<<< Updated upstream
                                 type="email"
                                 id="email"
                                 value={email}
                                 onChange={handleEmailChange}
                                 required
+=======
+                                type="text"
+                                name="name"
+                                value={Username}
+                                onChange={handleUsernameChange}
+>>>>>>> Stashed changes
                             />
                         </div>
                         <div className="login-input">
@@ -89,10 +118,16 @@ function Login() {
                             </div>
                             <input
                                 type="password"
+<<<<<<< Updated upstream
                                 id="password"
                                 value={password}
                                 onChange={handlePasswordChange}
                                 required
+=======
+                                name="name"
+                                value={Password}
+                                onChange={handlePasswordChange}
+>>>>>>> Stashed changes
                             />
                         </div>
                     </div>
