@@ -1,30 +1,29 @@
 /*User Containers*/
-.user-container{
+.user-container {
     display: inline-flex;
     padding: 4rem 3rem;
     flex-direction: column;
     align-items: center;
     gap: 3.1875rem;
-    background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
+    background: linear-gradient(180deg, #fbe2fd 0%, #fbd0fb 100%);
     border-radius: 3.125rem;
-    border: 5px solid #FFCAFC;
+    border: 5px solid #ffcafc;
     box-shadow: 0px 4px 23.9px 0px rgba(0, 0, 0, 0.17);
-
 }
-.user-list{
+.user-list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.specific-user-titles{
+.specific-user-titles {
     display: flex;
     width: 70.375rem;
     padding: 0.25rem 1rem;
     gap: 3.4375rem;
-    border-top: 3px solid #8B358B;
-    background: #FBD0FB;
+    border-top: 3px solid #8b358b;
+    background: #fbd0fb;
 }
-.specific-user{
+.specific-user {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,30 +31,28 @@
     padding: 0.25rem 1rem;
     align-items: center;
     gap: 3.4375rem;
-    border-top: 3px solid #8B358B;
-    background: #FBD0FB;
+    border-top: 3px solid #8b358b;
+    background: #fbd0fb;
 }
-.id-title{
+.id-title {
     margin-right: 17rem;
 }
-.role-title{
+.role-title {
     margin-right: 14.5rem;
 }
-.other-title{
+.other-title {
     margin-right: 16rem;
 }
 
-
-
 /*Buttons*/
-.user-buttons{
+.user-buttons {
     display: flex;
     width: 72rem;
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
 }
-.user-edit-buttons{
+.user-edit-buttons {
     height: 2.3125rem;
     display: inline-flex;
     padding: 0.625rem;
@@ -63,11 +60,11 @@
     align-items: center;
     gap: 0.625rem;
     border-radius: 0.625rem;
-    border: 3px solid #DB87B9;
-    background: #FFADDE;
+    border: 3px solid #db87b9;
+    background: #ffadde;
     cursor: pointer;
 }
-.user-create-buttons{
+.user-create-buttons {
     height: 2.3125rem;
     display: inline-flex;
     padding: 0.625rem;
@@ -75,26 +72,26 @@
     align-items: center;
     gap: 0.625rem;
     border-radius: 0.625rem;
-    border: 3px solid #DB87B9;
-    background: #FFADDE;
+    border: 3px solid #db87b9;
+    background: #ffadde;
     cursor: pointer;
 }
-.user-swap-buttons{
+.user-swap-buttons {
     width: 2.3125rem;
     height: 2.3125rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
-    border: 3px solid #DB87B9;
-    background: #FFADDE;
+    border: 3px solid #db87b9;
+    background: #ffadde;
     cursor: pointer;
 }
-.user-creating-stuff{
+.user-creating-stuff {
     display: flex;
     width: 17rem;
     justify-content: space-between;
     flex-direction: row;
 }
-.user-page-swappers{
+.user-page-swappers {
     display: flex;
     width: 6rem;
     justify-content: space-between;
@@ -103,182 +100,182 @@
 
 /*Popups*/
 .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(0.2rem); 
-  background: rgba(0, 0, 0, 0.5); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(0.2rem);
+    background: rgba(0, 0, 0, 0.5);
 }
-.main-user-container{
+.main-user-container {
     width: 90rem;
     height: 44rem;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .popup-box {
+}
+.popup-box {
     display: inline-flex;
     padding: 2rem 2rem;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     border-radius: 3rem;
-    border: 5px solid #FFCAFC;
-    background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
+    border: 5px solid #ffcafc;
+    background: linear-gradient(180deg, #fbe2fd 0%, #fbd0fb 100%);
     box-shadow: 0px 4px 23.9px 0px rgba(0, 0, 0, 0.17);
-  }
-  
-  .popup-box .popup-title {
-    color: #8B358B;
+}
+
+.popup-box .popup-title {
+    color: #8b358b;
     text-align: center;
     font-size: 2.8rem;
     font-style: normal;
     line-height: normal;
-  }
-  
-  .popup-layout {
+}
+
+.popup-layout {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem; 
-  }
-  
-  .popup-input {
+    gap: 1rem;
+}
+
+.popup-input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:25rem;
-  }
-  
-  .input-row {
+    width: 25rem;
+}
+
+.input-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
+}
 
-  .popup-dropdown {
+.popup-dropdown {
     width: 100%;
     height: 2.5rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
-    border: 3px solid #8B358B;
-    background: #EEBCEE;
+    border: 3px solid #8b358b;
+    background: #eebcee;
     padding: 0.5rem;
     box-sizing: border-box;
     font-size: 1rem;
-    color: #8B358B;
-  }
-  
-  .popup-box .error-text {
-    color: #C5314C;
+    color: #8b358b;
+}
+
+.popup-box .error-text {
+    color: #c5314c;
     font-size: 1rem;
     font-weight: 500;
     line-height: normal;
-  }
-  
-  
-  .popup-input input {
+}
+
+.popup-input input {
     width: 100%;
     height: 2rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
-    border: 3px solid #8B358B;
-    background: #EEBCEE;
-  }
-  
-  .popup-button {
+    border: 3px solid #8b358b;
+    background: #eebcee;
+}
+
+.popup-button {
     height: 2.5rem;
     width: auto;
     flex-shrink: 0;
     border-radius: 0.9375rem;
-    border: 3px solid #DB87B9;
-    background: #FFADDE;
+    border: 3px solid #db87b9;
+    background: #ffadde;
     margin-left: 0.5rem;
     cursor: pointer;
-  }
-  
-  .popup-button .button-text {
-    color: #8B358B;
+}
+
+.popup-button .button-text {
+    color: #8b358b;
     text-align: center;
     font-size: 1rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  }
-  .left {
+}
+.left {
     display: flex;
-    width:25rem;
+    width: 25rem;
     justify-content: flex-start;
-    margin-right:1rem;
-  }
-  
-  .input-text {
-    color: #8B358B;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: normal;
-  }
-  
-  .error-text {
-    color: #C5314C;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: normal;
-  }
+    margin-right: 1rem;
+}
 
-  @media (max-width: 767px) {
+.input-text {
+    color: #8b358b;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.error-text {
+    color: #c5314c;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media (max-width: 767px) {
     .popup-box {
-      padding: 2rem 1rem;
-      margin-right:  34.5rem;
-      width: 19rem;
-      margin-bottom: 60rem;
+        padding: 2rem 1rem;
+        margin-right: 34.5rem;
+        width: 19rem;
+        margin-bottom: 60rem;
     }
     .popup-button {
-      margin-left: 4.5rem;
+        margin-left: 4.5rem;
     }
-    
-  .popup-input {
-    margin-right: 1rem;
-  }
-  .specific-user-titles{
-    display: flex;
-    width: 19.5rem;
-    margin-left: 1rem;
-    padding: 0.25rem ;
-    gap: 0.4375rem;
-    border-top: 3px solid #8B358B;
-    background: #FBD0FB;
-}
-.specific-user{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 19.5rem;
-    margin-left: 1rem;
-    padding: 0.25rem ;
-    align-items: center;
-    gap: 0.4375rem;
-    border-top: 3px solid #8B358B;
-    background: #FBD0FB;
-}
-.id-title{
-  margin-right: 1rem;
-}
-.role-title{
-  margin-right: 1rem;
-  margin-left: -13rem;
-}
-.other-title{
-  margin-right: 1rem;
-  margin-left: 1.5rem;
-}
-.user-container{
-  width:15rem; 
-  margin-left: 0rem;
-  margin-right: 1.5rem;
+
+    .popup-input {
+        margin-right: 1rem;
+    }
+    .specific-user-titles {
+        display: flex;
+        width: 19.5rem;
+        margin-left: 1rem;
+        padding: 0.25rem;
+        gap: 0.4375rem;
+        border-top: 3px solid #8b358b;
+        background: #fbd0fb;
+    }
+    .specific-user {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 19.5rem;
+        margin-left: 1rem;
+        padding: 0.25rem;
+        align-items: center;
+        gap: 0.4375rem;
+        border-top: 3px solid #8b358b;
+        background: #fbd0fb;
+    }
+    .id-title {
+        margin-right: 1rem;
+    }
+    .role-title {
+        margin-right: 1rem;
+        margin-left: -13rem;
+    }
+    .other-title {
+        margin-right: 1rem;
+        margin-left: 1.5rem;
+    }
+    .user-container {
+        width: 15rem;
+        margin-left: 0rem;
+        margin-right: 1.5rem;
+    }
 }
