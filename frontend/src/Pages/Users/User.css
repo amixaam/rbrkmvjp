@@ -4,10 +4,10 @@
     padding: 4rem 3rem;
     flex-direction: column;
     align-items: center;
-    gap: 3.1875rem;
-    background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
+    gap: 1.1875rem;
     border-radius: 3.125rem;
     border: 5px solid #FFCAFC;
+    background: linear-gradient(180deg, #FBE2FD 0%, #FBD0FB 100%);
     box-shadow: 0px 4px 23.9px 0px rgba(0, 0, 0, 0.17);
 
 }
@@ -45,7 +45,43 @@
     margin-right: 16rem;
 }
 
-
+/*Product  List*/
+.product-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.specific-product-titles{
+     display: flex;
+     width: 70.375rem;
+     padding: 0.25rem 1rem;
+     gap: 3.4375rem;
+     border-top: 3px solid #8B358B;
+     background: #FBD0FB;
+ }
+.specific-product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70.375rem;
+    padding: 0.25rem 1rem;
+    align-items: center;
+    gap: 3.4375rem;
+    border-top: 3px solid #8B358B;
+    background: #FBD0FB;
+}
+.product-creating-stuff{
+    display: flex;
+    width: 29rem;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.product-page-swappers{
+    display: flex;
+    width: 6rem;
+    justify-content: space-between;
+    flex-direction: row;
+}
 
 /*Buttons*/
 .user-buttons{
