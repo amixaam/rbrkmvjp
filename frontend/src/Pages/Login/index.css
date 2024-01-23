@@ -94,3 +94,13 @@ body {
     justify-content: space-between;
     width: 23rem;
 }
+@media (max-width: 767px) {
+    .login-box {
+       width:18rem;
+       margin-right: 0.5rem;
+        }
+        .login-layout input {
+            width: 17rem;
+           
+        }
+}
