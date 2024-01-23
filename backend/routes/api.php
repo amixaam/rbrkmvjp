@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // USERS
     Route::prefix('/users')->group(function () {
         // /users/"x"
+        // PIEMĒRS: '/{user_id} = users/{user_id}'
         Route::get('/', [UserController::class, 'GetAllUsers']);
         Route::post('/', [UserController::class, 'CreateUser']);
         Route::put('/{user_id}', [UserController::class, 'UpdateUser']);
@@ -42,8 +44,16 @@ Route::middleware('auth:sanctum')->group(function () {
         // /products/"x"
         Route::get('/', [ProductController::class, 'getAllProducts']);
         Route::post('/', [ProductController::class, 'createProduct']);
+        Route::put('/', [ProductController::class, 'updateProduct']);
         Route::get('/unassigned', [ProductController::class, 'getUnassignedProducts']);
         Route::get('/{product_id}', [ProductController::class, 'getProduct']);
         Route::get('/assigned/{user_id}', [ProductController::class, 'getAssignedProducts']);
+    });
+
+    Route::prefix('/reports')->group(function () {
+        // Route::get('/', [ReportController::class, 'getAllReports']);
+        Route::post('/admin', [ReportController::class, 'createAdminReport']);
+        Route::post('/manager', [ReportController::class, 'createManagerReport']);
+        Route::post('/worker', [ReportController::class, 'createWorkerReport']);
     });
 });

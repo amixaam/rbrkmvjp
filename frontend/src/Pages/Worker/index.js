@@ -31,18 +31,6 @@ function Worker() {
         setHistoryPopUpVisibility(false);
         setPopUpVisibility(false);
     };
-<<<<<<< Updated upstream
-
-    const closePopUp = () => {
-        setPopUpVisibility(false);
-    };
-    const closeHistoryPopUp = () => {
-        setHistoryPopUpVisibility(false);
-    };
-    const closeEditProductPopUp = () => {
-        setEditProductPopUpVisibility(false);
-    };
-
     // DABUJ "WORK DUE"
     // ROBERTS PĀRĒJO BACKEND ŠIM IZDARĪS
     useEffect(() => {
@@ -56,7 +44,9 @@ function Worker() {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
-                            Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                            Authorization: `Bearer ${sessionStorage.getItem(
+                                "token"
+                            )}`,
                         },
                     }
                 );
@@ -72,8 +62,6 @@ function Worker() {
         getWorkDue();
     }, []);
 
-=======
-
     const closePopUp = () => {
         setPopUpVisibility(false);
     };
@@ -83,7 +71,6 @@ function Worker() {
     const closeEditProductPopUp = () => {
         setEditProductPopUpVisibility(false);
     };
->>>>>>> Stashed changes
     return (
         <>
             <div className="main-worker-container">

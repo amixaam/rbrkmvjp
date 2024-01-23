@@ -1,9 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-<<<<<<< Updated upstream
-import "./User.css";
-=======
 import "./index.css";
->>>>>>> Stashed changes
 import "../../Reusable/text.css";
 import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
@@ -298,8 +294,4 @@ function Admin() {
     );
 }
 
-<<<<<<< Updated upstream
 export default Admin;
-=======
-export default Admin;
->>>>>>> Stashed changes
