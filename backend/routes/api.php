@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
 
 
 /*
@@ -26,4 +27,4 @@ Route::get('/{user_id}', [UserController::class, 'GetUser']);
 Route::post('/', [UserController::class, 'CreateUser']);
 Route::delete('/{user_id}', [UserController::class, 'DeleteUser']);
 Route::post('/login', [UserController::class, 'ValidateLogin']);
-
+Route::post('/messages', [MessageController::class, 'create']);
