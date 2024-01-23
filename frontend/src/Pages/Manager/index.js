@@ -79,7 +79,7 @@ function Manager() {
                                 <div className="asignee-title">
                                     <p className="small-text">Asignee</p>
                                 </div>
-                                <div className="other-title">
+                                <div className="other-title1">
                                     <p className="small-text">Other</p>
                                 </div>
                             </div>
@@ -171,6 +171,7 @@ function Manager() {
                                         <p className="text-buttons">
                                             Create New
                                         </p>
+                                    <button className="manager-create-buttons2" onClick={showPopUp}><p className="text-buttons">Create New</p>
                                     </button>
                                 </div>
                                 <div className="manager-page-swappers">
