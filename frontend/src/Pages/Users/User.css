@@ -241,6 +241,7 @@
       padding: 2rem 1rem;
       margin-right:  34.5rem;
       width: 19rem;
+      margin-bottom: 60rem;
     }
     .popup-button {
       margin-left: 4.5rem;
@@ -286,19 +287,5 @@
   margin-left: 0rem;
   margin-right: 1.5rem;
 }
-.user-create-buttons{
-  margin-left: 11rem;
-  width: 5rem;
-  height: auto;
-  cursor: pointer;
-}
-.user-buttons{
-  display: flex;
-  width: 27rem;
-  margin-right: 7rem;
-  flex-direction: row;
-  justify-content: space-between;
 
-  cursor: pointer;
-}
   }
