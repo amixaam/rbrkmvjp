@@ -96,9 +96,7 @@ function Manager() {
                             </div>
                             <div className="edit-container">
                                 <button
-                                    className="worker-edit-buttons"
-                                    onClick={showEditProductPopUp}
-                                >
+                                    className="worker-edit-buttons"                                >
                                     <p className="text-buttons">Edit</p>
                                 </button>
                             </div>
@@ -106,15 +104,11 @@ function Manager() {
                         <div className="manager-buttons">
                             <div className="manager-creating-stuff">
                                 <button
-                                    className="manager-create-buttons"
-                                    onClick={showProductHistoryPopUp}
-                                >
+                                    className="manager-create-buttons"                                >
                                     <p className="text-buttons">View History</p>
                                 </button>
                                 <button
-                                    className="manager-create-buttons"
-                                    onClick={showAddProductPopUp}
-                                >
+                                    className="manager-create-buttons"                                >
                                     <p className="text-buttons">Add Product</p>
                                 </button>
                                 <button className="manager-create-buttons">
@@ -165,13 +159,11 @@ function Manager() {
                             <div className="manager-message-buttons">
                                 <div className="manager-creating-stuff">
                                     <button
-                                        className="manager-create-buttons"
-                                        onClick={showPopUp}
-                                    >
+                                        className="manager-create-buttons"                                    >
                                         <p className="text-buttons">
                                             Create New
                                         </p>
-                                    <button className="manager-create-buttons2" onClick={showPopUp}><p className="text-buttons">Create New</p>
+                                    <button className="manager-create-buttons2"><p className="text-buttons">Create New</p>
                                     </button>
                                     </button>
                                 </div>
@@ -190,22 +182,6 @@ function Manager() {
                                     </button>
                                 </div>
                             </div>
-                            {isPopUpVisible && <PopUp onClose={closePopUp} />}
-                            {isProductHistoryPopUpVisible && (
-                                <ProductHistoryPopUp
-                                    onClose={closeProductHistoryPopUp}
-                                />
-                            )}
-                            {isEditProductPopUpVisible && (
-                                <EditProductPopUp
-                                    onClose={closeEditProductPopUp}
-                                />
-                            )}
-                            {isAddProductPopUpVisible && (
-                                <AddProductPopUp
-                                    onClose={closeAddProductPopUp}
-                                />
-                            )}
                         </div>
                     </div>
                 </div>

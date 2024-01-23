@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0b8604de-1b24-44c6-9a67-9bdb750e96c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Admin/User.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Admin/User.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/AddProductPopup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/ProductHistoryPopUp.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Manager/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/PopUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Worker/PopUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/PopUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/ViewHistoryPopUp.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -65,6 +66,7 @@
       <recent name="C:\Users\marci\Desktop\rbrkmvjp\frontend\src\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marci\Desktop\rbrkmvjp\frontend\src\Reusable\Popups" />
       <recent name="C:\Users\marci\Desktop\rbrkmvjp\frontend\src\Reusable" />
     </key>
   </component>
