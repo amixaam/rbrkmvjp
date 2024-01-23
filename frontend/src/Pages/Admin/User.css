@@ -53,7 +53,6 @@
     width: 72rem;
     flex-direction: row;
     justify-content: space-between;
-
     cursor: pointer;
 }
 .user-edit-buttons{
@@ -66,7 +65,6 @@
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
-
     cursor: pointer;
 }
 .user-create-buttons{
@@ -79,7 +77,6 @@
     border-radius: 0.625rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
-
     cursor: pointer;
 }
 .user-swap-buttons{
@@ -89,7 +86,6 @@
     border-radius: 0.9375rem;
     border: 3px solid #DB87B9;
     background: #FFADDE;
-
     cursor: pointer;
 }
 .user-creating-stuff{
@@ -203,7 +199,6 @@
     border: 3px solid #DB87B9;
     background: #FFADDE;
     margin-left: 0.5rem;
-
     cursor: pointer;
   }
   
@@ -287,5 +282,3 @@
   margin-left: 0rem;
   margin-right: 1.5rem;
 }
-
-  }

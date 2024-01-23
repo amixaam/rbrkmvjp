@@ -1,48 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import "../../Reusable/text.css";
-import "../../Reusable/Background.css"
+import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import PopUp from "./PopUp";
 import HistoryPopUp from "./ViewHistoryPopUp";
 import EditProductPopUp from "../../Reusable/editProductPopup";
+import Background from "../../Reusable/Background";
 
 function Worker() {
-  const [isPopUpVisible, setPopUpVisibility] = useState(false);
-  const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
-  const [isEditProductPopUpVisible, setEditProductPopUpVisibility] = useState(false);
+    const [isPopUpVisible, setPopUpVisibility] = useState(false);
+    const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
+    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] =
+        useState(false);
 
-  const showPopUp = () => {
-    setPopUpVisibility(true);
-    setHistoryPopUpVisibility(false);
-    setEditProductPopUpVisibility(false);
-  };
+    const showPopUp = () => {
+        setPopUpVisibility(true);
+        setHistoryPopUpVisibility(false);
+        setEditProductPopUpVisibility(false);
+    };
 
-  const showHistoryPopUp = () => {
-    setHistoryPopUpVisibility(true);
-    setPopUpVisibility(false);
-    setEditProductPopUpVisibility(false);
-  };
-  const showEditProductPopUp = () => {
-    setEditProductPopUpVisibility(true);
-    setHistoryPopUpVisibility(false);
-    setPopUpVisibility(false);
-  };
+    const showHistoryPopUp = () => {
+        setHistoryPopUpVisibility(true);
+        setPopUpVisibility(false);
+        setEditProductPopUpVisibility(false);
+    };
+    const showEditProductPopUp = () => {
+        setEditProductPopUpVisibility(true);
+        setHistoryPopUpVisibility(false);
+        setPopUpVisibility(false);
+    };
 
-  const closePopUp = () => {
-    setPopUpVisibility(false);
-  };
-  const closeHistoryPopUp = () => {
-    setHistoryPopUpVisibility(false);
-  };
-  const closeEditProductPopUp = () => {
-    setEditProductPopUpVisibility(false);
-  }
+    const closePopUp = () => {
+        setPopUpVisibility(false);
+    };
+    const closeHistoryPopUp = () => {
+        setHistoryPopUpVisibility(false);
+    };
+    const closeEditProductPopUp = () => {
+        setEditProductPopUpVisibility(false);
+    };
+
+    // DABUJ "WORK DUE"
+    // ROBERTS PĀRĒJO BACKEND ŠIM IZDARĪS
+    useEffect(() => {
+        const getWorkDue = async () => {
+            try {
+                const response = await fetch(
+                    `http://127.0.0.1:8000/api/products/assigned/${sessionStorage.getItem(
+                        "user_id"
+                    )}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${sessionStorage.getItem('token')}`
+                        },
+                    }
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(data);
+                }
+            } catch (error) {
+                console.error("Error fetching TODO's", error);
+            }
+        };
+
+        getWorkDue();
+    }, []);
+
     return (
         <>
             <div className="main-worker-container">
-                <div className="background-container"></div>
+                <Background />
                 <div className="worker-container">
                     <div className="main-title">
                         <h1 className="text-primary">Worker interface</h1>
@@ -77,20 +109,37 @@ function Worker() {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button className="worker-edit-buttons" onClick={showEditProductPopUp}><p className="text-buttons">Edit</p></button>
+                                <button
+                                    className="worker-edit-buttons"
+                                    onClick={showEditProductPopUp}
+                                >
+                                    <p className="text-buttons">Edit</p>
+                                </button>
                             </div>
                         </div>
                         <div className="worker-buttons">
                             <div className="worker-creating-stuff">
-                                <button className="worker-create-buttons" onClick={showHistoryPopUp}><p className="text-buttons">View History</p>
+                                <button
+                                    className="worker-create-buttons"
+                                    onClick={showHistoryPopUp}
+                                >
+                                    <p className="text-buttons">View History</p>
                                 </button>
-                                <button className="worker-create-buttons"><p className="text-buttons">Create Report</p>
+                                <button className="worker-create-buttons">
+                                    <p className="text-buttons">
+                                        Create Report
+                                    </p>
                                 </button>
                             </div>
                             <div className="worker-page-swappers">
-                                <button className="worker-swap-buttons"><img src={LeftArrow} alt="Previous Button"/>
+                                <button className="worker-swap-buttons">
+                                    <img
+                                        src={LeftArrow}
+                                        alt="Previous Button"
+                                    />
                                 </button>
-                                <button className="worker-swap-buttons"><img src={RightArrow} alt="Next Button"/>
+                                <button className="worker-swap-buttons">
+                                    <img src={RightArrow} alt="Next Button" />
                                 </button>
                             </div>
                         </div>
@@ -98,7 +147,9 @@ function Worker() {
                         {/*Message container*/}
                         <div className="message-container">
                             <div className="worker-title">
-                                <p className="text-secondary">Recent Messages</p>
+                                <p className="text-secondary">
+                                    Recent Messages
+                                </p>
                                 <div className="specific-message">
                                     <div className="sent-received-container">
                                         <p>x</p>
@@ -113,26 +164,47 @@ function Worker() {
                                         <p>x</p>
                                     </div>
                                     <div className="edit-container">
-                                        <button className="worker-edit-buttons"><p className="text-buttons">View</p>
+                                        <button className="worker-edit-buttons">
+                                            <p className="text-buttons">View</p>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             <div className="worker-message-buttons">
                                 <div className="worker-creating-stuff">
-                                    <button className="worker-create-buttons" onClick={showPopUp}><p className="text-buttons">Create New</p>
+                                    <button
+                                        className="worker-create-buttons"
+                                        onClick={showPopUp}
+                                    >
+                                        <p className="text-buttons">
+                                            Create New
+                                        </p>
                                     </button>
                                 </div>
                                 <div className="worker-page-swappers">
-                                    <button className="worker-swap-buttons"><img src={LeftArrow} alt="Previous Button"/>
+                                    <button className="worker-swap-buttons">
+                                        <img
+                                            src={LeftArrow}
+                                            alt="Previous Button"
+                                        />
                                     </button>
-                                    <button className="worker-swap-buttons"><img src={RightArrow} alt="Next Button"/>
+                                    <button className="worker-swap-buttons">
+                                        <img
+                                            src={RightArrow}
+                                            alt="Next Button"
+                                        />
                                     </button>
                                 </div>
                             </div>
                             {isPopUpVisible && <PopUp onClose={closePopUp} />}
-                            {isHistoryPopUpVisible && <HistoryPopUp onClose={closeHistoryPopUp} />}
-                            {isEditProductPopUpVisible && <EditProductPopUp onClose={closeEditProductPopUp} />}
+                            {isHistoryPopUpVisible && (
+                                <HistoryPopUp onClose={closeHistoryPopUp} />
+                            )}
+                            {isEditProductPopUpVisible && (
+                                <EditProductPopUp
+                                    onClose={closeEditProductPopUp}
+                                />
+                            )}
                         </div>
                     </div>
                 </div>

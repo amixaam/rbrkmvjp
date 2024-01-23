@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,13 +18,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-Route::get('users/', [UserController::class, 'GetAllUsers']);
-Route::put('users/{user_id}', [UserController::class, 'UpdateUser']);
-Route::get('users/{user_id}', [UserController::class, 'GetUser']);
-Route::post('users/', [UserController::class, 'CreateUser']);
-Route::delete('users/{user_id}', [UserController::class, 'DeleteUser']);
-Route::post('/login', [UserController::class, 'ValidateLogin']);
+// login
+Route::post('/login', [AuthController::class, 'login']);
+
+// api endpointus, ko var lietot, ja ir ielogojies
+// GANDRĪZ VISIEM ENDPOINTIEM VAJADZĒTU BŪT ŠEIT
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+
+    // USERS
+    Route::prefix('/users')->group(function () {
+        // /users/"x"
+        Route::get('/', [UserController::class, 'GetAllUsers']);
+        Route::post('/', [UserController::class, 'CreateUser']);
+        Route::put('/{user_id}', [UserController::class, 'UpdateUser']);
+        Route::get('/{user_id}', [UserController::class, 'GetUser']);
+        Route::delete('/{user_id}', [UserController::class, 'DeleteUser']);
+    });
+
+    // PRODUCTS
+    Route::prefix('/products')->group(function () {
+        // /products/"x"
+        Route::get('/', [ProductController::class, 'getAllProducts']);
+        Route::post('/', [ProductController::class, 'createProduct']);
+        Route::get('/unassigned', [ProductController::class, 'getUnassignedProducts']);
+        Route::get('/{product_id}', [ProductController::class, 'getProduct']);
+        Route::get('/assigned/{user_id}', [ProductController::class, 'getAssignedProducts']);
+    });
+});
