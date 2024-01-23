@@ -167,7 +167,7 @@ function Manager() {
                                     <button
                                         className="manager-create-buttons"
                                         onClick={showPopUp}
-                                    >
+                                    />
                                         <p className="text-buttons">
                                             Create New
                                         </p>

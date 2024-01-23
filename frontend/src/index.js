@@ -11,8 +11,8 @@ import Admin from "./Pages/Admin";
 const App = () => {
     return (
         <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Admin />} />
             <Route path="/worker" element={<Worker />} />
             <Route path="/manager" element={<Manager />} />
         </Routes>
