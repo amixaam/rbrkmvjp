@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./index.css";
-
 import Background from "../../Reusable/Background";
 import { useNavigate } from "react-router-dom";
 
@@ -56,6 +55,12 @@ function Login() {
             console.error("Login failed", error);
         }
     };
+
+
+
+    //
+    // TODO: ERROR HANDLING
+    //
 
     return (
         <form id="loginform">

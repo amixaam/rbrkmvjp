@@ -40,6 +40,7 @@ function Worker() {
     };
     const closeHistoryPopUp = () => {
         setHistoryPopUpVisibility(false);
+
     };
     const closeEditProductPopUp = () => {
         setEditProductPopUpVisibility(false);
