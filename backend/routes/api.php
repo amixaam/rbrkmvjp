@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
@@ -50,10 +51,18 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/assigned/{user_id}', [ProductController::class, 'getAssignedProducts']);
     });
 
+
+    // mesages
+    Route::prefix('/messages')->group(function () {
+        // /mesages/"x"
+        Route::get('/{user_id}', [MessageController::class, 'GetAllMessages']);
+        Route::post('/', [MessageController::class, 'create']);
+
     Route::prefix('/reports')->group(function () {
         // Route::get('/', [ReportController::class, 'getAllReports']);
         Route::post('/admin', [ReportController::class, 'createAdminReport']);
         Route::post('/manager', [ReportController::class, 'createManagerReport']);
         Route::post('/worker', [ReportController::class, 'createWorkerReport']);
+
     });
 });

@@ -56,9 +56,12 @@ function Login() {
         }
     };
 
+
+
     //
     // TODO: ERROR HANDLING
     //
+
     return (
         <form id="loginform">
             <div className="login-container">
@@ -72,11 +75,13 @@ function Login() {
                                 <h3 className="error-text"></h3>
                             </div>
                             <input
+
                                 type="email"
                                 id="email"
                                 value={email}
                                 onChange={handleEmailChange}
                                 required
+
                             />
                         </div>
                         <div className="login-input">

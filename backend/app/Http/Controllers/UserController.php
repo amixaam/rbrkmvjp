@@ -40,12 +40,14 @@ class UserController extends Controller
                 'password' => 'required|min:6',
             ]);
 
-            $user = User::create([
-                'role_id' => $request->input('role_id', 3),
-                'email' => $request->input('email'),
+            User::create([
                 'username' => $request->input('username'),
-                'password' => Hash::make($request->input('password')),
+                'role_id' => $request->input('role_id'),
+                'email' => $request->input('email'),
+                'password' => bcrypt($request->input('password')),
             ]);
+            
+            
 
             return response()->json(['message' => "User created successfully!"], 201);
         } catch (\Exception $e) {
