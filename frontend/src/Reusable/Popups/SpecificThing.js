@@ -1,10 +1,11 @@
 import React from 'react';
+import "./PopupStyle.css";
 
 const SpecificThing = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <div className="popup-specifics"></div>
+        </>
     );
 };
 

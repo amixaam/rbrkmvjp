@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0b8604de-1b24-44c6-9a67-9bdb750e96c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/AddProductPopup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/ProductHistoryPopUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Admin/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Manager/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/PopUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/ViewHistoryPopUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Worker/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/Popups/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Reusable/Popups/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/Popups/PopupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Reusable/Popups/PopupStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/Popups/SpecificThing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Reusable/Popups/SpecificThing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/editProductPopup.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,22 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.index.js.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GrupasDarbsVarIzestMan",
-    "last_opened_file_path": "C:/Users/marci/Desktop/rbrkmvjp/frontend/src/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.index.js.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GrupasDarbsVarIzestMan&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marci/Desktop/rbrkmvjp/frontend/src/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marci\Desktop\rbrkmvjp\frontend\src\images" />
@@ -85,6 +87,8 @@
       <workItem from="1705646191560" duration="3878000" />
       <workItem from="1705905465129" duration="8854000" />
       <workItem from="1705998186426" duration="1078000" />
+      <workItem from="1706036015338" duration="10065000" />
+      <workItem from="1706078557392" duration="1107000" />
     </task>
     <servers />
   </component>

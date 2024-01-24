@@ -4,59 +4,9 @@ import "../../Reusable/text.css";
 import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
-import PopUp from "../Worker/PopUp";
-import ProductHistoryPopUp from "./ProductHistoryPopUp";
-import EditProductPopUp from "../../Reusable/editProductPopup";
-import AddProductPopUp from "./AddProductPopup";
 import Background from "../../Reusable/Background";
 
 function Manager() {
-    const [isPopUpVisible, setPopUpVisibility] = useState(false);
-    const [isProductHistoryPopUpVisible, setProductHistoryPopUpVisibility] =
-        useState(false);
-    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] =
-        useState(false);
-    const [isAddProductPopUpVisible, setAddProductPopUpVisibility] =
-        useState(false);
-
-    const showPopUp = () => {
-        setPopUpVisibility(true);
-        setProductHistoryPopUpVisibility(false);
-        setEditProductPopUpVisibility(false);
-        setAddProductPopUpVisibility(false);
-    };
-
-    const showProductHistoryPopUp = () => {
-        setProductHistoryPopUpVisibility(true);
-        setPopUpVisibility(false);
-        setEditProductPopUpVisibility(false);
-        setAddProductPopUpVisibility(false);
-    };
-    const showEditProductPopUp = () => {
-        setEditProductPopUpVisibility(true);
-        setAddProductPopUpVisibility(false);
-        setProductHistoryPopUpVisibility(false);
-        setPopUpVisibility(false);
-    };
-    const showAddProductPopUp = () => {
-        setAddProductPopUpVisibility(true);
-        setEditProductPopUpVisibility(false);
-        setProductHistoryPopUpVisibility(false);
-        setPopUpVisibility(false);
-    };
-
-    const closePopUp = () => {
-        setPopUpVisibility(false);
-    };
-    const closeProductHistoryPopUp = () => {
-        setProductHistoryPopUpVisibility(false);
-    };
-    const closeEditProductPopUp = () => {
-        setEditProductPopUpVisibility(false);
-    };
-    const closeAddProductPopUp = () => {
-        setEditProductPopUpVisibility(false);
-    };
     return (
         <>
             <div className="main-manager-container">
@@ -95,20 +45,17 @@ function Manager() {
                                 <p>x</p>
                             </div>
                             <div className="edit-container">
-                                <button
-                                    className="worker-edit-buttons"                                >
+                                <button className="worker-edit-buttons">
                                     <p className="text-buttons">Edit</p>
                                 </button>
                             </div>
                         </div>
                         <div className="manager-buttons">
                             <div className="manager-creating-stuff">
-                                <button
-                                    className="manager-create-buttons"                                >
+                                <button className="manager-create-buttons">
                                     <p className="text-buttons">View History</p>
                                 </button>
-                                <button
-                                    className="manager-create-buttons"                                >
+                                <button className="manager-create-buttons">
                                     <p className="text-buttons">Add Product</p>
                                 </button>
                                 <button className="manager-create-buttons">
@@ -159,7 +106,7 @@ function Manager() {
                             <div className="manager-message-buttons">
                                 <div className="manager-creating-stuff">
                                     <button
-                                        className="manager-create-buttons"                                    >
+                                        className="manager-create-buttons">
                                         <p className="text-buttons">
                                             Create New
                                         </p>

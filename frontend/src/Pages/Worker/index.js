@@ -4,46 +4,9 @@ import "../../Reusable/text.css";
 import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
-import PopUp from "./PopUp";
-import HistoryPopUp from "./ViewHistoryPopUp";
-import EditProductPopUp from "../../Reusable/editProductPopup";
 import Background from "../../Reusable/Background";
 
 function Worker() {
-    const [isPopUpVisible, setPopUpVisibility] = useState(false);
-    const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
-    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] =
-        useState(false);
-
-    const showPopUp = () => {
-        setPopUpVisibility(true);
-        setHistoryPopUpVisibility(false);
-        setEditProductPopUpVisibility(false);
-    };
-
-    const showHistoryPopUp = () => {
-        setHistoryPopUpVisibility(true);
-        setPopUpVisibility(false);
-        setEditProductPopUpVisibility(false);
-    };
-    const showEditProductPopUp = () => {
-        setEditProductPopUpVisibility(true);
-        setHistoryPopUpVisibility(false);
-        setPopUpVisibility(false);
-    };
-
-    const closePopUp = () => {
-        setPopUpVisibility(false);
-    };
-    const closeHistoryPopUp = () => {
-        setHistoryPopUpVisibility(false);
-    };
-    const closeEditProductPopUp = () => {
-        setEditProductPopUpVisibility(false);
-    };
-
-    // DABUJ "WORK DUE"
-    // ROBERTS PĀRĒJO BACKEND ŠIM IZDARĪS
     useEffect(() => {
         const getWorkDue = async () => {
             try {
@@ -110,9 +73,7 @@ function Worker() {
                             </div>
                             <div className="edit-container">
                                 <button
-                                    className="worker-edit-buttons"
-                                    onClick={showEditProductPopUp}
-                                >
+                                    className="worker-edit-buttons">
                                     <p className="text-buttons">Edit</p>
                                 </button>
                             </div>
@@ -120,9 +81,7 @@ function Worker() {
                         <div className="worker-buttons">
                             <div className="worker-creating-stuff">
                                 <button
-                                    className="worker-create-buttons"
-                                    onClick={showHistoryPopUp}
-                                >
+                                    className="worker-create-buttons">
                                     <p className="text-buttons">View History</p>
                                 </button>
                                 <button className="worker-create-buttons">
@@ -133,13 +92,10 @@ function Worker() {
                             </div>
                             <div className="worker-page-swappers">
                                 <button className="worker-swap-buttons">
-                                    <img
-                                        src={LeftArrow}
-                                        alt="Previous Button"
-                                    />
+                                    <img src={LeftArrow} alt="Previous Button"/>
                                 </button>
                                 <button className="worker-swap-buttons">
-                                    <img src={RightArrow} alt="Next Button" />
+                                    <img src={RightArrow} alt="Next Button"/>
                                 </button>
                             </div>
                         </div>
@@ -172,10 +128,7 @@ function Worker() {
                             </div>
                             <div className="worker-message-buttons">
                                 <div className="worker-creating-stuff">
-                                    <button
-                                        className="worker-create-buttons"
-                                        onClick={showPopUp}
-                                    >
+                                    <button className="worker-create-buttons">
                                         <p className="text-buttons">
                                             Create New
                                         </p>
@@ -196,15 +149,6 @@ function Worker() {
                                     </button>
                                 </div>
                             </div>
-                            {isPopUpVisible && <PopUp onClose={closePopUp} />}
-                            {isHistoryPopUpVisible && (
-                                <HistoryPopUp onClose={closeHistoryPopUp} />
-                            )}
-                            {isEditProductPopUpVisible && (
-                                <EditProductPopUp
-                                    onClose={closeEditProductPopUp}
-                                />
-                            )}
                         </div>
                     </div>
                 </div>

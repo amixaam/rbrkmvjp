@@ -1,9 +1,13 @@
 import React from 'react';
 import "./PopupStyle.css";
+
 const Popup = () => {
     return (
         <>
-            <dialog className="popup-base"></dialog>
+            <div className="blurred-bg">
+                <dialog className="popup-base">
+                </dialog>
+            </div>
         </>
     );
 };
