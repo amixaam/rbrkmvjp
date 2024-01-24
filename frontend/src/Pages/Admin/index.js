@@ -10,11 +10,6 @@ import Specific from "../../Reusable/Popups/SpecificThing";
 import "../../Reusable/Popups/PopupStyle.css";
 
 function Admin() {
-    const [closed, setClosed] = useState("closed")
-    const isClosed = () => {
-        setClosed("closed");
-
-    }
     const errorMessages = {
         Username: "Error message",
         Password: "Error message",
@@ -30,7 +25,7 @@ function Admin() {
 
     return (
         <>
-            <dialog id="history" className="blurred-bg" onclick={isClosed}>
+            <dialog id="history" className="blurred-bg">
                     <div className="popup-base">
                         <div className="popup-title">
                             <p className="text-primary">Product History</p>
@@ -68,9 +63,7 @@ function Admin() {
 
             <div className="main-user-container">
                 <Background/>
-
-                {/*User List*/
-                }
+                {/*User List*/}
                 <div className="user-container">
                     <div className="main-user-title">
                         <h1 className="text-primary">Admin interface</h1>
