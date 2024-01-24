@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./User.css";
+import "./index.css";
 import "../../Reusable/text.css";
 import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import Background from "../../Reusable/Background";
-import Popup from "../../Reusable/Popups/Popup";
 import Specific from "../../Reusable/Popups/SpecificThing";
 import "../../Reusable/Popups/PopupStyle.css";
+import GetAllProducts from "../../Reusable/fetch/GetAllProducts";
+import GetAllUsers from "../../Reusable/fetch/GetAllUsers";
+import CreateUser from "../../Reusable/fetch/CreateUser";
+import createProduct from "../../Reusable/fetch/CreateProduct";
 
 function Admin() {
     const errorMessages = {
@@ -23,6 +26,14 @@ function Admin() {
 
     const roles = ["Admin", "Manager", "Worker"];
 
+    useEffect(() => {
+        const Fetch = async( ) => {
+            const dataproducts = await GetAllProducts();
+            const datausers = await GetAllUsers();
+            console.log(datausers);
+        };
+        Fetch();
+    }, []);
     return (
         <>
             <dialog id="history" className="blurred-bg">
@@ -171,11 +182,11 @@ function Admin() {
                                 <img src={RightArrow} alt="Next Button"/>
                             </button>
                         </div>
+
                     </div>
                 </div>
             </div>
         </>
     );
 }
-
 export default Admin;

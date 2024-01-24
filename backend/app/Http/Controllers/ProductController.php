@@ -91,4 +91,58 @@ class ProductController extends Controller
             return response()->json(['error' => 'Product creation failed.' . $e], 500);
         }
     }
+
+    public function updateProduct(Request $request)
+    {
+        try {
+            // VALIDĀCIJA
+            $request->validate([
+                'id' => 'required|string',
+                'name' => 'nullable|string',
+                'description' => 'nullable|string',
+                'quantity' => 'nullable|min:1',
+                'supplier_price' => 'nullable|numeric',
+                'store_price' => 'nullable|numeric',
+                'supplier_id' => 'nullable|exists:suppliers,id',
+                'category_id' => 'nullable|exists:categories,id',
+                'destination_shelf_id' => 'nullable|exists:shelves,id',
+                'asignee_id' => 'nullable|exists:users,id',
+                'delivered' => 'nullable|boolean',
+            ]);
+
+            $product = Product::find($request->input('id'));
+
+            if (!$product) {
+                return response()->json(['message' => 'Product id was not found.'], 404);
+            }
+
+            if ($request->input('asignee_id')) {
+                $asigneeId = $request->input('asignee_id');
+                $userRole = User::where('id', $asigneeId)->value('role_id');
+
+                if ($userRole != 3) {
+                    return response()->json(['error' => 'You can only assign products to workers.'], 422);
+                }
+            }
+
+            // UPDATOŠANA
+            $updateData = [];
+
+            // Check each field and add to updateData if present in the request
+            $fillableFields = ['name', 'description', 'quantity', 'supplier_price', 'store_price', 'supplier_id', 'category_id', 'destination_shelf_id', 'asignee_id', 'delivered'];
+
+            foreach ($fillableFields as $field) {
+                if ($request->has($field)) {
+                    $updateData[$field] = $request->input($field);
+                }
+            }
+
+            $product->update($updateData);
+
+            // RESPONSE
+            return response()->json(['message' => "Product updated successfully!"], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Product update failed. ' . $e->getMessage()], 500);
+        }
+    }
 }

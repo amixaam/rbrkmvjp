@@ -5,35 +5,20 @@ import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import Background from "../../Reusable/Background";
+import WorkDue from "../../Reusable/fetch/WorkDue";
+import GetAllMessages from "../../Reusable/fetch/GetAllMessages";
+import create from "../../Reusable/fetch/CreateMessage";
 
 function Worker() {
     useEffect(() => {
-        const getWorkDue = async () => {
-            try {
-                const response = await fetch(
-                    `http://127.0.0.1:8000/api/products/assigned/${sessionStorage.getItem(
-                        "user_id"
-                    )}`,
-                    {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: `Bearer ${sessionStorage.getItem('token')}`
-                        },
-                    }
-                );
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log(data);
-                }
-            } catch (error) {
-                console.error("Error fetching TODO's", error);
-            }
-        };
-
-        getWorkDue();
+        const Fetch = async( ) => {
+            const data = await WorkDue();
+            const messagedata = await GetAllMessages();
+            console.log(messagedata);
+        }
+        Fetch();
     }, []);
-
+    
     return (
         <>
             <div className="main-worker-container">

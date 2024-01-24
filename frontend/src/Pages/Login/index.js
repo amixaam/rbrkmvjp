@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./index.css";
-
 import Background from "../../Reusable/Background";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,6 @@ function Login() {
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
-
     const loginHandler = async (e) => {
         e.preventDefault();
 
@@ -58,6 +56,8 @@ function Login() {
         }
     };
 
+
+
     //
     // TODO: ERROR HANDLING
     //
@@ -75,11 +75,13 @@ function Login() {
                                 <h3 className="error-text"></h3>
                             </div>
                             <input
+
                                 type="email"
                                 id="email"
                                 value={email}
                                 onChange={handleEmailChange}
                                 required
+
                             />
                         </div>
                         <div className="login-input">

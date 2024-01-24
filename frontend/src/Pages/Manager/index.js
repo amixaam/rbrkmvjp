@@ -5,8 +5,20 @@ import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import Background from "../../Reusable/Background";
+import GetUnassignedProducts from "../../Reusable/fetch/GetUnassignedProducts";
+import GetAllMessages from "../../Reusable/fetch/GetAllMessages";
 
 function Manager() {
+
+    useEffect(() => {
+        const Fetch = async( ) => {
+            const messagedata = await GetAllMessages();
+            const unasigneddata = await GetUnassignedProducts();
+            console.log(messagedata);
+        }
+        Fetch();
+    }, []);
+
     return (
         <>
             <div className="main-manager-container">
