@@ -9,3 +9,7 @@
     background-size: contain;
     z-index: -1;
 }
+
+.dark-bg {
+    background-image: url(../images/dark_wave_bg.svg);
+}

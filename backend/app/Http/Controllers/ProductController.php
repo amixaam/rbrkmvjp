@@ -16,8 +16,19 @@ class ProductController extends Controller
 
     public function GetAssignedProducts($user_id)
     {
-        // worker
-        $matchingProducts = Product::where('asignee_id', $user_id)->get();
+        // Retrieve products with supplier, category, and shelf information, and sort by delivered field
+        $matchingProducts = Product::where('asignee_id', $user_id)
+            ->leftJoin('suppliers', 'products.supplier_id', '=', 'suppliers.id')
+            ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+            ->leftJoin('shelves', 'products.destination_shelf_id', '=', 'shelves.id')
+            ->select(
+                'products.*',
+                'suppliers.name as supplier_name',
+                'categories.name as category_name',
+                'shelves.name as shelf_name'
+            )
+            ->orderBy('delivered')
+            ->get();
 
         return response()->json($matchingProducts, 200);
     }

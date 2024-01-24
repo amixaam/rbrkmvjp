@@ -57,12 +57,12 @@ Route::middleware('auth:sanctum')->group(function () {
         // /mesages/"x"
         Route::get('/{user_id}', [MessageController::class, 'GetAllMessages']);
         Route::post('/', [MessageController::class, 'create']);
+    });
 
     Route::prefix('/reports')->group(function () {
         // Route::get('/', [ReportController::class, 'getAllReports']);
         Route::post('/admin', [ReportController::class, 'createAdminReport']);
         Route::post('/manager', [ReportController::class, 'createManagerReport']);
         Route::post('/worker', [ReportController::class, 'createWorkerReport']);
-
     });
 });

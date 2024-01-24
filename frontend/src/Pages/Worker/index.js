@@ -1,216 +1,137 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import "../../Reusable/text.css";
-import "../../Reusable/Background.css";
-import LeftArrow from "../../images/left_arrow.svg";
-import RightArrow from "../../images/right_arrow.svg";
-import PopUp from "./PopUp";
-import HistoryPopUp from "./ViewHistoryPopUp";
-import EditProductPopUp from "../../Reusable/editProductPopup";
-import Background from "../../Reusable/Background";
 import WorkDue from "../../Reusable/fetch/WorkDue";
 import GetAllMessages from "../../Reusable/fetch/GetAllMessages";
 import create from "../../Reusable/fetch/CreateMessage";
+import ProductsTable from "../../Reusable/Tables/ProductsTable";
+import MessagesTable from "../../Reusable/Tables/MessagesTable";
+import { useLocalStorage } from "@uidotdev/usehooks";
+import Background from "../../Reusable/Background";
+import FormPopup from "../../Reusable/popups/FormPopup";
+import ReportPopup from "../../Reusable/popups/ReportPopup";
+import ViewMessage from "../../Reusable/popups/ViewMessage";
 
 function Worker() {
-    const [isPopUpVisible, setPopUpVisibility] = useState(false);
-    const [isHistoryPopUpVisible, setHistoryPopUpVisibility] = useState(false);
-    const [isEditProductPopUpVisible, setEditProductPopUpVisibility] =
-        useState(false);
+    const [productData, setProductData] = useState([]);
+    const [messageData, setMessageData] = useState([]);
+    const [selectedMessage, setSelectedMessage] = useState(null);
 
-    const showPopUp = () => {
-        setPopUpVisibility(true);
-        setHistoryPopUpVisibility(false);
-        setEditProductPopUpVisibility(false);
+    const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+
+    const [messagePopup, setmessagePopup] = useState(false);
+    const [reportPopup, setReportPopup] = useState(false);
+    const [viewMessage, setViewMessage] = useState(false);
+
+    const [isMessageSent, setIsMessageSent] = useState(false);
+    const [isMarkedComplete, setIsMarkedComplete] = useState(false);
+
+    const handleMessagePopup = () => {
+        if (messagePopup) {
+            setmessagePopup(false);
+        } else {
+            setmessagePopup(true);
+        }
     };
 
-    const showHistoryPopUp = () => {
-        setHistoryPopUpVisibility(true);
-        setPopUpVisibility(false);
-        setEditProductPopUpVisibility(false);
-    };
-    const showEditProductPopUp = () => {
-        setEditProductPopUpVisibility(true);
-        setHistoryPopUpVisibility(false);
-        setPopUpVisibility(false);
+    const handleReportPopup = () => {
+        if (reportPopup) {
+            setReportPopup(false);
+        } else {
+            setReportPopup(true);
+        }
     };
 
-    const closePopUp = () => {
-        setPopUpVisibility(false);
+    const handleViewMessage = (data) => {
+        if (viewMessage) {
+            setViewMessage(false);
+            setSelectedMessage(null);
+        } else {
+            setViewMessage(true);
+            setSelectedMessage(data);
+        }
     };
-    const closeHistoryPopUp = () => {
-        setHistoryPopUpVisibility(false);
 
-    };
-    const closeEditProductPopUp = () => {
-        setEditProductPopUpVisibility(false);
-    };
-    const handleCreateMessageClick = async () => {
+    const handleCreateMessageClick = async (data) => {
         try {
-            const messageData = {
-                to_user_id:'',
-                title:'',
-                content:'',
-            };
+            const createdMessage = await create(data);
+            // MESSAGE GOT SENT
+            setIsMessageSent(true);
 
-            const createdMessage = await create(messageData);
-            console.log("User created successfully:", createdMessage);
-
-            // Close the popup after successful user creation
-            setPopUpVisibility(false);
+            // Hide the message after 3000 milliseconds (3 seconds)
+            setTimeout(() => {
+                setIsMessageSent(false);
+            }, 3000);
         } catch (error) {
-            console.error("Error creating user:", error.message);
+            console.error("Error creating message:", error.message);
         }
     };
-    // GETS WORK DUE DATA and Messages
-    useEffect(() => {
-        const Fetch = async( ) => {
-            const data = await WorkDue();
-            const messagedata = await GetAllMessages();
-            console.log(messagedata);
+
+    const handleUpdatePostClick = async (data) => {
+        try {
+            setIsMarkedComplete(true);
+
+            // Hide the message after 3000 milliseconds (3 seconds)
+            setTimeout(() => {
+                setIsMarkedComplete(false);
+            }, 3000);
+        } catch (error) {
+            console.error("Error updating product:", error.message);
         }
+    };
+
+    useEffect(() => {
+        const Fetch = async () => {
+            sessionStorage.setItem("user_id", 6);
+            sessionStorage.setItem(
+                "token",
+                "21|okoLwnUioOska8S9BqEhzPMw3y13X5sVYacAuchlf9e403e5"
+            );
+            setProductData(await WorkDue());
+            setMessageData(await GetAllMessages());
+        };
         Fetch();
     }, []);
-    
+
     return (
-        <>
-            <div className="main-worker-container">
-                <Background />
-                <div className="worker-container">
-                    <div className="main-title">
-                        <h1 className="text-primary">Worker interface</h1>
+        <div className="worker-view" data-theme={theme}>
+            <FormPopup
+                HandleSubmit={handleCreateMessageClick}
+                isOpen={messagePopup}
+                ClosePopup={handleMessagePopup}
+            />
+            <ReportPopup ClosePopup={handleReportPopup} isOpen={reportPopup} />
+            <ViewMessage
+                ToggleCreateMessage={handleMessagePopup}
+                data={selectedMessage}
+                ClosePopup={handleViewMessage}
+                isOpen={viewMessage}
+            />
+            <Background />
+            <div className="main-container">
+                <h1>Worker interface</h1>
+                <div className="work-container">
+                    <div className="title">
+                        <h2>Work due</h2>
+                        {isMessageSent && <p>Marked as completed!</p>}
                     </div>
-
-                    {/*Shelf container*/}
-                    <div className="work-due-contianer">
-                        <div className="worker-title">
-                            <p className="text-secondary">Work Due</p>
-                        </div>
-                        <div className="worker-shelves">
-                            <div className="specific-worker-shelf-titles">
-                                <div className="shelf-title">
-                                    <p className="small-text">Shelf</p>
-                                </div>
-                                <div className="date-title">
-                                    <p className="small-text">Date</p>
-                                </div>
-                                <div className="other-title">
-                                    <p className="small-text">Other</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="specific-worker-shelf">
-                            <div className="shelf-container">
-                                <p>x</p>
-                            </div>
-                            <div className="date-container">
-                                <p>x</p>
-                            </div>
-                            <div className="other-container">
-                                <p>x</p>
-                            </div>
-                            <div className="edit-container">
-                                <button
-                                    className="worker-edit-buttons"
-                                    onClick={showEditProductPopUp}
-                                >
-                                    <p className="text-buttons">Edit</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div className="worker-buttons">
-                            <div className="worker-creating-stuff">
-                                <button
-                                    className="worker-create-buttons"
-                                    onClick={showHistoryPopUp}
-                                >
-                                    <p className="text-buttons">View History</p>
-                                </button>
-                                <button className="worker-create-buttons">
-                                    <p className="text-buttons">
-                                        Create Report
-                                    </p>
-                                </button>
-                            </div>
-                            <div className="worker-page-swappers">
-                                <button className="worker-swap-buttons">
-                                    <img
-                                        src={LeftArrow}
-                                        alt="Previous Button"
-                                    />
-                                </button>
-                                <button className="worker-swap-buttons">
-                                    <img src={RightArrow} alt="Next Button" />
-                                </button>
-                            </div>
-                        </div>
-
-                        {/*Message container*/}
-                        <div className="message-container">
-                            <div className="worker-title">
-                                <p className="text-secondary">
-                                    Recent Messages
-                                </p>
-                                <div className="specific-message">
-                                    <div className="sent-received-container">
-                                        <p>x</p>
-                                    </div>
-                                    <div className="subject-container">
-                                        <p>x</p>
-                                    </div>
-                                    <div className="content-container">
-                                        <p>x</p>
-                                    </div>
-                                    <div className="date-container">
-                                        <p>x</p>
-                                    </div>
-                                    <div className="edit-container">
-                                        <button className="worker-edit-buttons">
-                                            <p className="text-buttons">View</p>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="worker-message-buttons">
-                                <div className="worker-creating-stuff">
-                                    <button
-                                        className="worker-create-buttons"
-                                        onClick={showPopUp}
-                                    >
-                                        <p className="text-buttons">
-                                            Create New
-                                        </p>
-                                    </button>
-                                </div>
-                                <div className="worker-page-swappers">
-                                    <button className="worker-swap-buttons">
-                                        <img
-                                            src={LeftArrow}
-                                            alt="Previous Button"
-                                        />
-                                    </button>
-                                    <button className="worker-swap-buttons">
-                                        <img
-                                            src={RightArrow}
-                                            alt="Next Button"
-                                        />
-                                    </button>
-                                </div>
-                            </div>
-                            {isPopUpVisible && <PopUp onClose={closePopUp} />}
-                            {isHistoryPopUpVisible && (
-                                <HistoryPopUp onClose={closeHistoryPopUp} />
-                            )}
-                            {isEditProductPopUpVisible && (
-                                <EditProductPopUp
-                                    onClose={closeEditProductPopUp}
-                                />
-                            )}
-                        </div>
+                    <ProductsTable
+                        products={productData}
+                        TogglePopup={handleReportPopup}
+                    />
+                </div>
+                <div className="messages-container">
+                    <div className="title">
+                        <h2>Recent messages</h2>
+                        {isMessageSent && <p>Message sent!</p>}
                     </div>
+                    <MessagesTable
+                        messages={messageData}
+                        TogglePopup={handleMessagePopup}
+                        ToggleViewMessage={handleViewMessage}
+                    />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

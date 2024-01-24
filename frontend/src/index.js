@@ -7,15 +7,19 @@ import Login from "./Pages/Login";
 import Worker from "./Pages/Worker";
 import Manager from "./Pages/Manager";
 import Admin from "./Pages/Admin";
+import NavBlob from "./Reusable/NavBlob";
 
 const App = () => {
     return (
-        <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/worker" element={<Worker />} />
-            <Route path="/manager" element={<Manager />} />
-        </Routes>
+        <>
+            <NavBlob />
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/worker" element={<Worker />} />
+                <Route path="/manager" element={<Manager />} />
+            </Routes>
+        </>
     );
 };
 

@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 
 async function create(messageData) {
+    console.log(messageData);
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/messages', {
-            method: 'POST',
+        const response = await fetch("http://127.0.0.1:8000/api/messages", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
             body: JSON.stringify(messageData),
         });

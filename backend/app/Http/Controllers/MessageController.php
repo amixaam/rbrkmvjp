@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
     //getAllMessages, postMessage
     public function create(Request $request)
     {
+        // return response()->json($request);
 
         try {
             // Validate the request data
@@ -19,7 +21,7 @@ class MessageController extends Controller
                 'title' => 'required|string',
                 'content' => 'required|string',
             ]);
-    
+
             // Create a new message
             Message::create([
                 'from_user_id' => $request->input('from_user_id'),
@@ -27,18 +29,24 @@ class MessageController extends Controller
                 'title' => $request->input('title'),
                 'content' => $request->input('content'),
             ]);
-    
+
             return response()->json(['message' => 'Message sent successfully']);
         } catch (\Exception $exception) {
-            // Log exception
-            \Illuminate\Support\Facades\Log::error('Exception: ' . $exception->getMessage());
-    
             return response()->json(['error' => $exception->getMessage()], 500);
         }
-    }    
+    }
     public function GetAllMessages($user_id)
     {
-        $matchingProducts = Message::where('to_user_id', $user_id)->get();
-        return response()->json($matchingProducts);
-    }    
+        // Retrieve messages with the username of the sender and format created_at
+        $matchingMessages = Message::where('to_user_id', $user_id)
+            ->leftJoin('users', 'messages.from_user_id', '=', 'users.id')
+            ->select(
+                'messages.*',
+                'users.username as from_username',
+                DB::raw("DATE_FORMAT(messages.created_at, '%d-%m-%Y') as formatted_created_at")
+            )
+            ->get();
+
+        return response()->json($matchingMessages);
+    }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,500;8..144,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
     --background: #ffffff;
@@ -19,6 +19,9 @@
     --input-border: #8b358b;
     --input-text: #8b358b;
     --input-error: #c5314c;
+
+    --icon-filter: invert(1);
+    --icon-reverse-filter: invert(0);
 
     --container-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
     --popup-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.3);
@@ -41,11 +44,103 @@
     --input-border: #5340c8;
     --input-text: #d9d2ff;
     --input-error: #bc7ed1;
+
+    --icon-filter: invert(0);
+    --icon-reverse-filter: invert(1);
 }
 
 /* tiks visiem applyots */
 * {
+    color: var(--text-fallback);
     margin: 0;
     min-width: 0;
     font-family: "Roboto Flex", sans-serif;
+}
+
+.flex-button {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid var(--button-border);
+    padding: 0.5rem;
+    background-color: var(--button-fill);
+    color: var(--button-text);
+
+    font-weight: 800;
+    transition: 0.3s ease;
+}
+.flex-button:hover {
+    filter: brightness(1.05);
+    box-shadow: 0px 4px 60px 0px var(--input-border);
+}
+
+.flex-input {
+    border-radius: 5px;
+    padding: 0.5rem 0.25rem;
+    color: var(--input-text);
+    border: 3px solid var(--input-border);
+    background: var(--input-fill);
+    transition: 0.3s ease;
+    outline: none;
+}
+.flex-input:focus {
+    filter: brightness(0.9);
+}
+
+textarea {
+    resize: none;
+    border-radius: 5px;
+    padding: 0.5rem 0.25rem;
+    color: var(--input-text);
+    border: 3px solid var(--input-border);
+    background: var(--input-fill);
+    transition: 0.3s ease;
+    outline: none;
+}
+textarea:focus {
+    filter: brightness(0.9);
+}
+img {
+    filter: var(--icon-filter);
+}
+
+/* Change the color of the date picker icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: var(--icon-reverse-filter); /* Inverts the color */
+    /* Additional styles if needed */
+}
+
+/* For Firefox browsers */
+input[type="date"]::-moz-calendar-picker-indicator {
+    filter: var(--icon-reverse-filter);
+    /* Additional styles if needed */
+}
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 3rem !important;
+    }
+    h2 {
+        font-size: 2rem !important;
+    }
+    table {
+        font-size: 1rem !important;
+        overflow-x: auto;
+    }
+    .flex-button {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    h1 {
+        font-size: 2rem !important;
+    }
+    h2 {
+        font-size: 1rem !important;
+    }
+    table {
+        font-size: 0.75rem !important;
+    }
 }

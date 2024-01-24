@@ -56,54 +56,14 @@ function Login() {
         }
     };
 
-
-
     //
     // TODO: ERROR HANDLING
     //
 
     return (
-        <form id="loginform">
-            <div className="login-container">
-                <Background />
-                <div className="login-box">
-                    <h1 className="title">RBRKMVJP</h1>
-                    <div className="login-layout">
-                        <div className="login-input">
-                            <div className="input-row">
-                                <h2 className="input-text">Email</h2>
-                                <h3 className="error-text"></h3>
-                            </div>
-                            <input
-
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={handleEmailChange}
-                                required
-
-                            />
-                        </div>
-                        <div className="login-input">
-                            <div className="input-row">
-                                <h2 className="input-text">Password</h2>
-                                <h3 className="error-text"></h3>
-                            </div>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={handlePasswordChange}
-                                required
-                            />
-                        </div>
-                    </div>
-                    <button className="login-button" onClick={loginHandler}>
-                        <h1 className="text">Log in</h1>
-                    </button>
-                </div>
-            </div>
-        </form>
+        <div className="Login-view">
+            <p>hi</p>
+        </div>
     );
 }
 

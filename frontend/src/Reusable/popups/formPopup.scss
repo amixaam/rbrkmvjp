@@ -1,0 +1,48 @@
+.form-popup-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+
+    .form-popup {
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        z-index: 11;
+
+        border-radius: 15px;
+        border: 5px solid var(--container-border);
+        background: var(--container-fill);
+        box-shadow: var(--container-shadow);
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+        }
+    }
+}
+
+.input-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .text {
+        display: flex;
+        justify-content: space-between;
+        .error {
+            color: var(--input-error);
+        }
+    }
+}
