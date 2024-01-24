@@ -1,19 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
-<<<<<<< Updated upstream
-import "./User.css";
-=======
 import "./index.css";
->>>>>>> Stashed changes
 import "../../Reusable/text.css";
 import "../../Reusable/Background.css";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 import Background from "../../Reusable/Background";
+import GetAllProducts from "../../Reusable/fetch/GetAllProducts";
+import GetAllUsers from "../../Reusable/fetch/GetAllUsers";
+import CreateUser from "../../Reusable/fetch/CreateUser";
+import createProduct from "../../Reusable/fetch/CreateProduct";
+
 
 function Admin() {
-    const [isPopupOpen, setPopupOpen] = useState(false);
-    const [isEditPopupOpen, setEditPopupOpen] = useState(false);
-
+        const [isPopupOpen, setPopupOpen] = useState(false);
+        const [isEditPopupOpen, setEditPopupOpen] = useState(false);
     const errorMessages = {
         Username: "Error message",
         Password: "Error message",
@@ -59,6 +59,64 @@ function Admin() {
     const handleEditButtonClick = () => {
         setEditPopupOpen(!isEditPopupOpen);
     };
+  
+    const handleAddUserClick = async () => {
+        try {
+            const userData = {
+                username: 'testasd',
+                password: '123456',
+                email: 'baba@jaga.com',
+                role_id: 3, // Adjust the role_id based on your requirements
+            };
+
+            const createdUser = await CreateUser(userData);
+            console.log("User created successfully:", createdUser);
+
+            // Close the popup after successful user creation
+            setPopupOpen(false);
+        } catch (error) {
+            console.error("Error creating user:", error.message);
+        }
+    };
+    const handleAddProdctClick = async () => {
+        try {
+            const productData = {
+                name: '',
+                description:'',
+                quantity:'',
+                supplier_price:'',
+                store_price:'',
+
+                supplier_id:'',
+                category_id:'',
+                destination_shelf_id:'',
+
+                asignee_id:'',
+                delivered:'',
+            };
+
+            const createdProduct = await createProduct(productData);
+            console.log("User created successfully:", createdProduct);
+
+            // Close the popup after successful user creation
+            setPopupOpen(false);
+        } catch (error) {
+            console.error("Error creating user:", error.message);
+        }
+    };
+
+
+
+
+    
+    useEffect(() => {
+        const Fetch = async( ) => {
+            const dataproducts = await GetAllProducts();
+            const datausers = await GetAllUsers();
+            console.log(datausers);
+        };
+        Fetch();
+    }, []);
 
     return (
         <>
@@ -193,9 +251,10 @@ function Admin() {
                                         </div>
                                     </div>
                                     <div className="left">
-                                        <button className="popup-button">
+                                        <button onClick = {handleAddUserClick} className="popup-button">
+                                        Add User
                                             <h1 className="button-text">
-                                                Add User
+                                                
                                             </h1>
                                         </button>
                                     </div>
@@ -298,8 +357,5 @@ function Admin() {
     );
 }
 
-<<<<<<< Updated upstream
 export default Admin;
-=======
-export default Admin;
->>>>>>> Stashed changes
+

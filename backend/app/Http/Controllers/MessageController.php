@@ -10,7 +10,6 @@ class MessageController extends Controller
     //getAllMessages, postMessage
     public function create(Request $request)
     {
-        return response()->json(['message' => 'Message sent successfully']);
 
         try {
             // Validate the request data
@@ -36,5 +35,10 @@ class MessageController extends Controller
     
             return response()->json(['error' => $exception->getMessage()], 500);
         }
-    }        
+    }    
+    public function GetAllMessages($user_id)
+    {
+        $matchingProducts = Message::where('to_user_id', $user_id)->get();
+        return response()->json($matchingProducts);
+    }    
 }

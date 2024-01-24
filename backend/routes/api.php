@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -45,5 +46,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/unassigned', [ProductController::class, 'getUnassignedProducts']);
         Route::get('/{product_id}', [ProductController::class, 'getProduct']);
         Route::get('/assigned/{user_id}', [ProductController::class, 'getAssignedProducts']);
+    });
+
+    // mesages
+    Route::prefix('/messages')->group(function () {
+        // /mesages/"x"
+        Route::get('/{user_id}', [MessageController::class, 'GetAllMessages']);
+        Route::post('/', [MessageController::class, 'create']);
     });
 });

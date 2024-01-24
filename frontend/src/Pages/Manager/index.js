@@ -9,6 +9,8 @@ import ProductHistoryPopUp from "./ProductHistoryPopUp";
 import EditProductPopUp from "../../Reusable/editProductPopup";
 import AddProductPopUp from "./AddProductPopup";
 import Background from "../../Reusable/Background";
+import GetUnassignedProducts from "../../Reusable/fetch/GetUnassignedProducts";
+import GetAllMessages from "../../Reusable/fetch/GetAllMessages";
 
 function Manager() {
     const [isPopUpVisible, setPopUpVisibility] = useState(false);
@@ -57,6 +59,16 @@ function Manager() {
     const closeAddProductPopUp = () => {
         setEditProductPopUpVisibility(false);
     };
+
+    useEffect(() => {
+        const Fetch = async( ) => {
+            const messagedata = await GetAllMessages();
+            const unasigneddata = await GetUnassignedProducts();
+            console.log(messagedata);
+        }
+        Fetch();
+    }, []);
+
     return (
         <>
             <div className="main-manager-container">
