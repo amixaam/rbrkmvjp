@@ -10,7 +10,7 @@
     justify-content: center;
     background: transparent;
     border: none;
-    z-index: 2500;
+    z-index: 2400;
 }
 .popup-base{
     overflow: hidden;

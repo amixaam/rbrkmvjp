@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b8604de-1b24-44c6-9a67-9bdb750e96c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Manager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Manager/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Pages/Worker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Pages/Worker/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/Popups/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Reusable/Popups/Popup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/Popups/PopupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Reusable/Popups/PopupStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/Popups/SpecificThing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Reusable/Popups/SpecificThing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Reusable/editProductPopup.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,7 @@
       <workItem from="1705905465129" duration="8854000" />
       <workItem from="1705998186426" duration="1078000" />
       <workItem from="1706036015338" duration="10065000" />
-      <workItem from="1706078557392" duration="1107000" />
+      <workItem from="1706078557392" duration="1199000" />
     </task>
     <servers />
   </component>
