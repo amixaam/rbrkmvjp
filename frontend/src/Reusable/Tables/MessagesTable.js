@@ -30,7 +30,7 @@ function MessagesTable({ messages, TogglePopup, ToggleViewMessage }) {
                     <tr>
                         <th>from</th>
                         <th>title</th>
-                        <th>content</th>
+                        <th className="hide-on-mobile">content</th>
                         <th>date</th>
                         <th></th>
                     </tr>
@@ -41,7 +41,9 @@ function MessagesTable({ messages, TogglePopup, ToggleViewMessage }) {
                             <tr key={message.id}>
                                 <td>{message.from_username}</td>
                                 <td>{message.title}</td>
-                                <td>{message.content}</td>
+                                <td className="hide-on-mobile">
+                                    {message.content}
+                                </td>
                                 <td>{message.formatted_created_at}</td>
                                 <td>
                                     <button
@@ -66,7 +68,7 @@ function MessagesTable({ messages, TogglePopup, ToggleViewMessage }) {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td className="hide-on-mobile"></td>
                         </tr>
                     ))}
                 </tbody>

@@ -65,4 +65,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/manager', [ReportController::class, 'createManagerReport']);
         Route::post('/worker', [ReportController::class, 'createWorkerReport']);
     });
+
+    Route::get('/storage/{path}', [ReportController::class, 'show'])->where('path', '.*');
 });

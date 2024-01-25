@@ -58,3 +58,11 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+    .products-table-container > table {
+        .hide-on-mobile {
+            display: none;
+        }
+    }
+}

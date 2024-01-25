@@ -2,3 +2,6 @@
 [0124/163417.914:ERROR:registration_protocol_win.cc(136)] TransactNamedPipe: The pipe has been ended. (0x6D)
 [0124/173302.251:ERROR:registration_protocol_win.cc(136)] TransactNamedPipe: The pipe has been ended. (0x6D)
 [0124/221016.215:ERROR:registration_protocol_win.cc(136)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0125/113716.420:ERROR:registration_protocol_win.cc(136)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0125/131444.885:ERROR:registration_protocol_win.cc(136)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0125/163451.563:ERROR:registration_protocol_win.cc(136)] TransactNamedPipe: The pipe has been ended. (0x6D)

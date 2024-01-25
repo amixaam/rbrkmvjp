@@ -10,6 +10,8 @@ import Background from "../../Reusable/Background";
 import FormPopup from "../../Reusable/popups/FormPopup";
 import ReportPopup from "../../Reusable/popups/ReportPopup";
 import ViewMessage from "../../Reusable/popups/ViewMessage";
+import MarkProductDone from "../../Reusable/fetch/MarkProductDone";
+import DownloadReport from "../../Reusable/fetch/DonwloadReport";
 
 function Worker() {
     const [productData, setProductData] = useState([]);
@@ -62,26 +64,57 @@ function Worker() {
                 setIsMessageSent(false);
             }, 3000);
         } catch (error) {
-            console.error("Error creating message:", error.message);
+            console.error("Error creating message:", error);
+        }
+    };
+
+    const handleCreateReportClick = async (timeframe) => {
+        try {
+            switch (sessionStorage.getItem("role_id")) {
+                case "1":
+                    await DownloadReport(
+                        timeframe,
+                        "http://127.0.0.1:8000/api/reports/admin"
+                    );
+                    break;
+                case "2":
+                    await DownloadReport(
+                        timeframe,
+                        "http://127.0.0.1:8000/api/reports/manager"
+                    );
+                    break;
+                case "3":
+                    await DownloadReport(
+                        timeframe,
+                        "http://127.0.0.1:8000/api/reports/worker"
+                    );
+                    break;
+            }
+            await DownloadReport(timeframe);
+            console.log("Report created for timeframe:", timeframe);
+        } catch (error) {
+            console.error("Error creating report:", error);
         }
     };
 
     const handleUpdatePostClick = async (data) => {
         try {
+            await MarkProductDone(data.id);
             setIsMarkedComplete(true);
-
+            setProductData(await WorkDue());
             // Hide the message after 3000 milliseconds (3 seconds)
             setTimeout(() => {
                 setIsMarkedComplete(false);
             }, 3000);
         } catch (error) {
-            console.error("Error updating product:", error.message);
+            console.error("Error updating product:", error);
         }
     };
 
     useEffect(() => {
         const Fetch = async () => {
             sessionStorage.setItem("user_id", 6);
+            sessionStorage.setItem("role_id", 3);
             sessionStorage.setItem(
                 "token",
                 "21|okoLwnUioOska8S9BqEhzPMw3y13X5sVYacAuchlf9e403e5"
@@ -99,7 +132,11 @@ function Worker() {
                 isOpen={messagePopup}
                 ClosePopup={handleMessagePopup}
             />
-            <ReportPopup ClosePopup={handleReportPopup} isOpen={reportPopup} />
+            <ReportPopup
+                ClosePopup={handleReportPopup}
+                isOpen={reportPopup}
+                handleReportDownload={handleCreateReportClick}
+            />
             <ViewMessage
                 ToggleCreateMessage={handleMessagePopup}
                 data={selectedMessage}
@@ -112,11 +149,12 @@ function Worker() {
                 <div className="work-container">
                     <div className="title">
                         <h2>Work due</h2>
-                        {isMessageSent && <p>Marked as completed!</p>}
+                        {isMarkedComplete && <p>Marked as completed!</p>}
                     </div>
                     <ProductsTable
                         products={productData}
                         TogglePopup={handleReportPopup}
+                        handleMarkComplete={handleUpdatePostClick}
                     />
                 </div>
                 <div className="messages-container">
