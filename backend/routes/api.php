@@ -49,12 +49,14 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/unassigned', [ProductController::class, 'getUnassignedProducts']);
         Route::get('/{product_id}', [ProductController::class, 'getProduct']);
         Route::get('/assigned/{user_id}', [ProductController::class, 'getAssignedProducts']);
+        Route::delete('/{user_id}', [ProductController::class, 'DeleteProduct']);
     });
 
 
     // mesages
     Route::prefix('/messages')->group(function () {
         // /mesages/"x"
+        Route::get('/options', [MessageController::class, 'GetUsernameOptions']);
         Route::get('/{user_id}', [MessageController::class, 'GetAllMessages']);
         Route::post('/', [MessageController::class, 'create']);
     });

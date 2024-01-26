@@ -10,12 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+
     public function GetAllUsers()
     {
-        // $csrf = csrf_token();
-        // return response()->json(["token" => $csrf]);
-
-        $users = User::all();
+        $users = User::with('role')->get();
         return response()->json($users);
     }
 
@@ -46,8 +45,8 @@ class UserController extends Controller
                 'email' => $request->input('email'),
                 'password' => bcrypt($request->input('password')),
             ]);
-            
-            
+
+
 
             return response()->json(['message' => "User created successfully!"], 201);
         } catch (\Exception $e) {
@@ -57,12 +56,13 @@ class UserController extends Controller
 
     public function UpdateUser(Request $request, $user_id)
     {
+        // return response()->json(request()->all());
         try {
             // Validation
             $request->validate([
                 'role_id' => 'nullable|integer|exists:roles,id',
-                'username' => 'nullable|string',
                 'email' => 'nullable|email|unique:users,email,' . $user_id,
+                'username' => 'required|string',
                 'password' => 'nullable|string|min:6', // password validation
             ]);
 
@@ -72,17 +72,22 @@ class UserController extends Controller
                 return response()->json(['message' => 'User not found'], 404);
             }
 
-            // update foreign keys
-            if ($request->has('role_id')) {
-                $user->role_id = $request->input('role_id');
-            }
-
             // Update other
-            $user->update([
-                'username' => $request->input('name'),
-                'email' => $request->input('email'),
-                'password' => bcrypt($request->input('password')),
-            ]);
+
+            if ($request->input('password')) {
+                $user->update([
+                    'role_id' => $request->input('role_id'),
+                    'username' => $request->input('username'),
+                    'email' => $request->input('email'),
+                    'password' => bcrypt($request->input('password')),
+                ]);
+            } else {
+                $user->update([
+                    'role_id' => $request->input('role_id'),
+                    'username' => $request->input('username'),
+                    'email' => $request->input('email'),
+                ]);
+            }
 
             return response()->json(['message' => 'User updated successfully']);
         } catch (ValidationException $e) {

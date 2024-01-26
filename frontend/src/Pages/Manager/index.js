@@ -18,6 +18,9 @@ import ProductFormPopup from "../../Reusable/popups/ProductFormPopup";
 import GetAllProducts from "../../Reusable/fetch/GetAllProducts";
 import ProductAddPopup from "../../Reusable/popups/ProductAddPopup";
 import GetDropdownOptions from "../../Reusable/fetch/GetDropdownOptions";
+import DeleteProduct from "../../Reusable/fetch/DeleteProduct";
+import SessionHandler from "../../Reusable/SessionHandler";
+import GetUsernameOptions from "../../Reusable/fetch/GetUsernameOptions";
 
 function Manager() {
     const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
@@ -25,6 +28,7 @@ function Manager() {
     const [productData, setProductData] = useState([]);
     const [allProductData, setAllProductData] = useState([]);
     const [dropdownOptions, setDropdownOptions] = useState([]);
+    const [usernameOptions, setUsernameOptions] = useState([]);
     const [messageData, setMessageData] = useState([]);
     const [selectedMessage, setSelectedMessage] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -167,28 +171,42 @@ function Manager() {
         }
     };
 
+    const handleDeleteProduct = async (id) => {
+        try {
+            await DeleteProduct(id);
+            setProductData(await GetUnassignedProducts());
+            setAllProductData(await GetAllProducts());
+            // MESSAGE GOT SENT
+            setIsEdited(true);
+
+            // Hide the message after 3000 milliseconds (3 seconds)
+            setTimeout(() => {
+                setIsEdited(false);
+            }, 3000);
+        } catch (error) {
+            console.error("Error deleting product:", error);
+        }
+    };
+
     useEffect(() => {
         const Fetch = async () => {
-            sessionStorage.setItem("user_id", 5);
-            sessionStorage.setItem("role_id", 2);
-            sessionStorage.setItem(
-                "token",
-                "21|okoLwnUioOska8S9BqEhzPMw3y13X5sVYacAuchlf9e403e5"
-            );
+            setDropdownOptions(await GetDropdownOptions());
+            setUsernameOptions(await GetUsernameOptions());
             setMessageData(await GetAllMessages());
             setProductData(await GetUnassignedProducts());
             setAllProductData(await GetAllProducts());
-            setDropdownOptions(await GetDropdownOptions());
         };
         Fetch();
     }, []);
 
     return (
         <div className="manager-view" data-theme={theme}>
+            <SessionHandler />
             <FormPopup
                 HandleSubmit={handleCreateMessageClick}
                 isOpen={messagePopup}
                 ClosePopup={handleMessagePopup}
+                usernameOptions={usernameOptions}
             />
             <ViewMessage
                 ToggleCreateMessage={handleMessagePopup}
@@ -213,6 +231,7 @@ function Manager() {
                 ClosePopup={handleUpdateForm}
                 options={dropdownOptions}
                 submitCreateProduct={handleUpdatePostClick}
+                deleteItem={handleDeleteProduct}
             />
             <ProductAddPopup
                 handleSubmitProduct={handleSubmitProduct}

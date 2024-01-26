@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./formPopup.scss";
 
-function FormPopup({ HandleSubmit, isOpen, ClosePopup }) {
+function FormPopup({ HandleSubmit, isOpen, ClosePopup, usernameOptions }) {
     const [formData, setFormData] = useState({
         from_user_id: sessionStorage.getItem("user_id"),
         to_user_id: "",
@@ -15,7 +15,7 @@ function FormPopup({ HandleSubmit, isOpen, ClosePopup }) {
         content: "",
     });
 
-    if (!isOpen) {
+    if (!isOpen || !usernameOptions) {
         return;
     }
 
@@ -81,6 +81,13 @@ function FormPopup({ HandleSubmit, isOpen, ClosePopup }) {
         event.stopPropagation();
     };
 
+    const renderOptions = (optionsArray) => {
+        return Object.entries(optionsArray).map(([id, name]) => (
+            <option key={id} value={id}>
+                {name}
+            </option>
+        ));
+    };
     return (
         <div className="form-popup-container" onClick={ClosePopup}>
             <div className="form-popup" onClick={handlePopupClick}>
@@ -91,13 +98,17 @@ function FormPopup({ HandleSubmit, isOpen, ClosePopup }) {
                             <p className="label">to</p>
                             <p className="error">{formErrors.to_user_id}</p>
                         </div>
-                        <input
-                            type="text"
+                        <select
                             name="to_user_id"
-                            value={formData.to}
+                            className="small-input"
+                            value={formData.to_user_id}
                             onChange={handleChange}
-                            className="flex-input"
-                        />
+                        >
+                            <option value="" disabled>
+                                Select
+                            </option>
+                            {renderOptions(usernameOptions)}
+                        </select>
                     </div>
                     <div className="input-container">
                         <div className="text">

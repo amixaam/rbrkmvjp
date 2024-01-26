@@ -53,7 +53,7 @@ function ProductAddPopup({ isOpen, ClosePopup, options, submitCreateProduct }) {
         if (formData.name === "") {
             setFormErrors((prevErrors) => ({
                 ...prevErrors,
-                name: "Name is required.",
+                name: "name is required.",
             }));
             hasError = true;
         }
@@ -61,7 +61,7 @@ function ProductAddPopup({ isOpen, ClosePopup, options, submitCreateProduct }) {
         if (formData.supplier_id === "") {
             setFormErrors((prevErrors) => ({
                 ...prevErrors,
-                supplier_name: "Supplier is required.", // Fix the property name here
+                supplier_name: "supplier is required.", // Fix the property name here
             }));
             hasError = true;
         }
@@ -69,7 +69,7 @@ function ProductAddPopup({ isOpen, ClosePopup, options, submitCreateProduct }) {
         if (formData.supplier_price === "") {
             setFormErrors((prevErrors) => ({
                 ...prevErrors,
-                supplier_price: "Price is required.",
+                supplier_price: "price is required.",
             }));
             hasError = true;
         }
@@ -77,7 +77,7 @@ function ProductAddPopup({ isOpen, ClosePopup, options, submitCreateProduct }) {
         if (formData.store_price === "") {
             setFormErrors((prevErrors) => ({
                 ...prevErrors,
-                store_price: "Price is required.",
+                store_price: "price is required.",
             }));
             hasError = true;
         }
@@ -85,7 +85,7 @@ function ProductAddPopup({ isOpen, ClosePopup, options, submitCreateProduct }) {
         if (formData.quantity === "") {
             setFormErrors((prevErrors) => ({
                 ...prevErrors,
-                quantity: "Quantity is required.",
+                quantity: "quantity is required.",
             }));
             hasError = true;
         }

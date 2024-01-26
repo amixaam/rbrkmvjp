@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
@@ -48,5 +50,22 @@ class MessageController extends Controller
             ->get();
 
         return response()->json($matchingMessages);
+    }
+
+    public function GetUsernameOptions()
+    {
+        // Get the current authenticated user
+        $currentUser = Auth::user();
+
+        // Get all users with roles greater than or equal to 2
+        $users = User::with('role')
+            ->where('role_id', '>=', 2)
+            ->where('id', '!=', $currentUser->id) // Exclude the current user
+            ->get();
+
+        // Format the results as {"user_id": "username"}
+        $formattedUsers = $users->pluck('username', 'id');
+
+        return response()->json($formattedUsers);
     }
 }

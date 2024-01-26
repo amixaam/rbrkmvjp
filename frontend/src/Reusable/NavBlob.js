@@ -22,9 +22,11 @@ function NavBlob() {
 
     return (
         <nav data-theme={theme}>
-            <div className="flex-button" onClick={handleLogOut}>
-                <img src={OffIcon} alt="log out button" />
-            </div>
+            {sessionStorage.getItem("role_id") && (
+                <div className="flex-button" onClick={handleLogOut}>
+                    <img src={OffIcon} alt="log out button" />
+                </div>
+            )}
             <div className="flex-button" onClick={handleDarkMode}>
                 <img src={theme === "light" ? MoonIcon : SunIcon} alt="" />
             </div>

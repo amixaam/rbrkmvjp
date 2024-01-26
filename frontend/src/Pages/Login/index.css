@@ -1,0 +1,29 @@
+.login-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    padding: 3rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    border-radius: 15px;
+    border: 5px solid var(--container-border);
+    background: var(--container-fill);
+    box-shadow: var(--container-shadow);
+
+    max-width: 70%;
+}
+
+@media screen and (max-width: 640px) {
+    .main-container {
+        width: 100%;
+    }
+}

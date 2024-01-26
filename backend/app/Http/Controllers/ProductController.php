@@ -194,4 +194,17 @@ class ProductController extends Controller
             return response()->json(['error' => 'Product update failed. ' . $e->getMessage()], 500);
         }
     }
+
+    public function DeleteProduct($id)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            $product->delete();
+
+            return response()->json(['message' => 'Product deleted successfully']);
+        } else {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+    }
 }

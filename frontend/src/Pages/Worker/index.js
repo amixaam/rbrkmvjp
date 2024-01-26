@@ -12,6 +12,8 @@ import ReportPopup from "../../Reusable/popups/ReportPopup";
 import ViewMessage from "../../Reusable/popups/ViewMessage";
 import MarkProductDone from "../../Reusable/fetch/MarkProductDone";
 import DownloadReport from "../../Reusable/fetch/DonwloadReport";
+import SessionHandler from "../../Reusable/SessionHandler";
+import GetUsernameOptions from "../../Reusable/fetch/GetUsernameOptions";
 
 function Worker() {
     const [productData, setProductData] = useState([]);
@@ -20,6 +22,7 @@ function Worker() {
 
     const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
 
+    const [usernameOptions, setUsernameOptions] = useState([]);
     const [messagePopup, setmessagePopup] = useState(false);
     const [reportPopup, setReportPopup] = useState(false);
     const [viewMessage, setViewMessage] = useState(false);
@@ -113,12 +116,8 @@ function Worker() {
 
     useEffect(() => {
         const Fetch = async () => {
-            sessionStorage.setItem("user_id", 6);
-            sessionStorage.setItem("role_id", 3);
-            sessionStorage.setItem(
-                "token",
-                "21|okoLwnUioOska8S9BqEhzPMw3y13X5sVYacAuchlf9e403e5"
-            );
+            setUsernameOptions(await GetUsernameOptions());
+
             setProductData(await WorkDue());
             setMessageData(await GetAllMessages());
         };
@@ -127,10 +126,12 @@ function Worker() {
 
     return (
         <div className="worker-view" data-theme={theme}>
+            <SessionHandler />
             <FormPopup
                 HandleSubmit={handleCreateMessageClick}
                 isOpen={messagePopup}
                 ClosePopup={handleMessagePopup}
+                usernameOptions={usernameOptions}
             />
             <ViewMessage
                 ToggleCreateMessage={handleMessagePopup}

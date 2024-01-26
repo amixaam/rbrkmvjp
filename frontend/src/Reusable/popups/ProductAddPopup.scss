@@ -25,6 +25,19 @@
         background: var(--container-fill);
         box-shadow: var(--container-shadow);
     }
+    .form-popup-small {
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        z-index: 11;
+
+        border-radius: 15px;
+        border: 5px solid var(--container-border);
+        background: var(--container-fill);
+        box-shadow: var(--container-shadow);
+    }
 }
 
 .product-info-container {
@@ -40,6 +53,14 @@
     flex-direction: column;
     gap: 0.3rem;
     height: 100%;
+}
+
+.input-vertical-full {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    height: 100%;
+    width: 100%;
 }
 .help {
     display: flex;
@@ -61,4 +82,8 @@
     height: 100%;
     width: 100%;
     flex-basis: 50%;
+}
+
+.margin-top {
+    margin-top: 0.5rem;
 }
