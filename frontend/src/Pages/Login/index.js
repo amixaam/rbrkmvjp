@@ -86,7 +86,10 @@ function Login() {
                             break;
                     }
                 } else {
-                    console.log("incorrect credentials");
+                    setFormErrors({
+                        email: "wrong credentials.",
+                        password: "",
+                    });
                 }
             } catch (error) {
                 console.error("Login failed", error);
