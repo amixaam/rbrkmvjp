@@ -89,83 +89,18 @@ class ReportController extends Controller
             $user->role = $roleName;
         }
 
-        // Generate the PDF with both 'products' and 'users' data
-        $pdf = PDF::loadView('report', ['tableData' => $tableData, 'userData' => $userData, 'startDate' => $startDate, 'endDate' => $endDate]);
+        $pdf = PDF::loadView('report', [
+            'tableData' => $tableData, 'userData' => $userData, 'startDate' => $startDate, 'endDate' => $endDate
+        ]);
 
-        // Save the PDF to the storage disk (e.g., 'public')
-        $pdfPath = 'reports/admin_report.pdf';
-        Storage::disk('public')->put($pdfPath, $pdf->output());
-
-        // Return the path to the saved PDF file
-        return response()->json(['pdf_path' => $pdfPath]);
+        // Return the PDF as a response
+        return response($pdf->output())
+            ->header(
+                'Content-Type',
+                'application/pdf'
+            )
+            ->header('Content-Disposition', 'inline; filename="report.pdf"');
     }
-
-    // public function createWorkerReport(Request $request)
-    // {
-    //     // Check if the authenticated user has the role_id of 3 (assuming '3' represents the role for workers)
-    //     if (Auth::user()->role_id !== 3) {
-    //         return response()->json(['error' => 'Unauthorized access.'], 403);
-    //     }
-
-    //     // Validate the request
-    //     $request->validate([
-    //         'start_date' => 'nullable|date',
-    //         'end_date' => 'nullable|date|after_or_equal:start_date',
-    //         'user_id' => 'required|exists:users,id',
-    //     ]);
-
-    //     // Get start and end dates from the validated request
-    //     $startDate = $request->input('start_date');
-    //     $endDate = $request->input('end_date');
-    //     $userId = $request->input('user_id');
-
-    //     // Fetch data for the worker
-    //     $workerData = DB::table('users')
-    //         ->where('id', $userId)
-    //         ->select('id', 'username', 'email', 'role_id', 'created_at')
-    //         ->first();
-
-    //     // Check if the user has the correct role
-    //     if ($workerData->role_id !== 3) {
-    //         return response()->json(['error' => 'Unauthorized access.'], 403);
-    //     }
-
-    //     // Fetch assigned products for the worker within the specified timeframe
-    //     $assignedProducts = DB::table('products')
-    //         ->where('asignee_id', $userId)
-    //         ->when($startDate, function ($query) use ($startDate) {
-    //             return $query->where('products.created_at', '>=', $startDate);
-    //         })
-    //         ->when($endDate, function ($query) use ($endDate) {
-    //             return $query->where('products.created_at', '<=', $endDate);
-    //         })
-    //         ->join('categories', 'products.category_id', '=', 'categories.id')
-    //         ->join('shelves', 'products.destination_shelf_id', '=', 'shelves.id')
-    //         ->select(
-    //             'products.id',
-    //             'products.name',
-    //             'categories.name as category_name',
-    //             'products.quantity',
-    //             'shelves.name as destination_shelf_name',
-    //             'products.delivered',
-    //             DB::raw("DATE_FORMAT(products.created_at, '%y-%d-%m') as formatted_created_at")
-    //         )
-    //         ->get();
-
-    //     // Fetch role name from 'roles' table
-    //     $roleName = DB::table('roles')->where('id', $workerData->role_id)->value('name');
-    //     $workerData->role = $roleName;
-
-    //     // Generate the PDF for the worker report
-    //     $pdf = PDF::loadView('worker_report', ['workerData' => $workerData, 'assignedProducts' => $assignedProducts, 'startDate' => $startDate, 'endDate' => $endDate]);
-
-    //     // Save the PDF to the storage disk (e.g., 'public')
-    //     $pdfPath = 'reports/worker_report.pdf';
-    //     Storage::disk('public')->put($pdfPath, $pdf->output());
-
-    //     // Return the path to the saved PDF file
-    //     return response()->json(['pdf_path' => $pdfPath]);
-    // }
 
     public function createWorkerReport(Request $request)
     {
@@ -345,8 +280,7 @@ class ReportController extends Controller
         }
 
         try {
-            // Generate the PDF with both 'assigned' and 'unassigned' products and 'users' data
-            $pdf = PDF::loadView('worker_report', [
+            $pdf = PDF::loadView('manager_report', [
                 'tableDataAssigned' => $tableDataAssigned,
                 'tableDataUnassigned' => $tableDataUnassigned,
                 'userData' => $userData,
@@ -354,13 +288,10 @@ class ReportController extends Controller
                 'endDate' => $endDate,
             ]);
 
-            // Save the PDF to the storage disk (e.g., 'public')
-            $pdfPath = 'reports/worker_report.pdf';
-            Storage::disk('public')->makeDirectory('reports');
-            Storage::disk('public')->put($pdfPath, $pdf->output());
-
-            // Return the path to the saved PDF file
-            return response()->json(['pdf_path' => $pdfPath]);
+            // Return the PDF as a response
+            return response($pdf->output())
+                ->header('Content-Type', 'application/pdf')
+                ->header('Content-Disposition', 'inline; filename="manager_report.pdf"');
         } catch (\Exception $e) {
             // Handle PDF generation error
             return response()->json(['error' => 'Failed to generate PDF.']);

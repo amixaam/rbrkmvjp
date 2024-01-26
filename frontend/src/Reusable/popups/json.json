@@ -1,0 +1,20 @@
+{
+    "categories": {
+        "1": "uncategorized",
+        "7": "tech",
+        "3": "food"
+    },
+    "suppliers": {
+        "1": "amazon",
+        "5": "google"
+    },
+    "assignees": {
+        "6": "DefaultGuy",
+        "2": "OtherGuy"
+    },
+    "shelves": {
+        "1": "tech",
+        "2": "food",
+        "6": "informal"
+    }
+}

@@ -67,4 +67,5 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::get('/storage/{path}', [ReportController::class, 'show'])->where('path', '.*');
+    Route::get('/options', [ProductController::class, 'GetDropdownOptions']);
 });

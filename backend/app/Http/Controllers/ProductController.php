@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Shelf;
+use App\Models\Supplier;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,8 +13,33 @@ class ProductController extends Controller
 {
     public function GetAllProducts()
     {
-        $products = Product::all();
+        $products = Product::leftJoin('suppliers', 'products.supplier_id', '=', 'suppliers.id')
+            ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+            ->leftJoin('shelves', 'products.destination_shelf_id', '=', 'shelves.id')
+            ->select(
+                'products.*',
+                'suppliers.name as supplier_name',
+                'categories.name as category_name',
+                'shelves.name as shelf_name'
+            )
+            ->orderByDesc('id') // Change this line to orderByDesc for descending order
+            ->get();
+
         return response()->json($products);
+    }
+
+    public function GetDropdownOptions()
+    {
+        $users = User::where('role_id', 3)->pluck('username', 'id')->toArray();
+
+        $options = [
+            "categories" => Category::pluck('name', 'id')->toArray(),
+            "suppliers" => Supplier::pluck('name', 'id')->toArray(),
+            "assignees" => $users,
+            "shelves" => Shelf::pluck('name', 'id')->toArray(),
+        ];
+
+        return response()->json($options);
     }
 
     public function GetAssignedProducts($user_id)
@@ -37,7 +65,18 @@ class ProductController extends Controller
     public function GetUnassignedProducts()
     {
         // manager
-        $matchingProducts = Product::where('asignee_id', null)->get();
+        $matchingProducts = Product::where('asignee_id', null)
+            ->leftJoin('suppliers', 'products.supplier_id', '=', 'suppliers.id')
+            ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+            ->leftJoin('shelves', 'products.destination_shelf_id', '=', 'shelves.id')
+            ->select(
+                'products.*',
+                'suppliers.name as supplier_name',
+                'categories.name as category_name',
+                'shelves.name as shelf_name'
+            )
+            ->orderBy('delivered')
+            ->get();
 
         return response()->json($matchingProducts, 200);
     }
@@ -52,7 +91,6 @@ class ProductController extends Controller
     public function CreateProduct(Request $request)
     {
         // RESPONSE TESTĒŠANA
-        // return response()->json($request->input('name'));
         try {
             // VALIDĀCIJA
             $request->validate([
@@ -63,7 +101,7 @@ class ProductController extends Controller
                 'store_price' => 'nullable|numeric',
 
                 'supplier_id' => 'required|exists:suppliers,id',
-                'category_id' => 'required|exists:categories,id',
+                'category_id' => 'nullable|exists:categories,id',
                 'destination_shelf_id' => 'nullable|exists:shelves,id',
 
                 'asignee_id' => 'nullable|exists:users,id',

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 async function create(messageData) {
-    console.log(messageData);
     try {
         const response = await fetch("http://127.0.0.1:8000/api/messages", {
             method: "POST",

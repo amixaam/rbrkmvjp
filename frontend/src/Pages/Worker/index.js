@@ -132,16 +132,16 @@ function Worker() {
                 isOpen={messagePopup}
                 ClosePopup={handleMessagePopup}
             />
-            <ReportPopup
-                ClosePopup={handleReportPopup}
-                isOpen={reportPopup}
-                handleReportDownload={handleCreateReportClick}
-            />
             <ViewMessage
                 ToggleCreateMessage={handleMessagePopup}
                 data={selectedMessage}
                 ClosePopup={handleViewMessage}
                 isOpen={viewMessage}
+            />
+            <ReportPopup
+                ClosePopup={handleReportPopup}
+                isOpen={reportPopup}
+                handleReportDownload={handleCreateReportClick}
             />
             <Background />
             <div className="main-container">
